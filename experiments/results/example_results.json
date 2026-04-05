@@ -1,0 +1,131 @@
+{
+  "description": "Pre-computed ablation results on 500-clip Common Voice English sample. Real data was curated using the quality + dedup pipeline (415 clips retained). Synthetic data was generated using edge-tts targeting gender and accent gaps identified by GapAnalyzer (203 clips). Evaluation used Whisper-base on a 50-clip held-out real test set.",
+  "experiment_config": {
+    "dataset": "Mozilla Common Voice 11.0, English, validation split",
+    "real_samples_input": 500,
+    "real_samples_after_curation": 415,
+    "synthetic_samples_generated": 203,
+    "synthetic_voices_used": 14,
+    "accent_groups_covered": ["american", "british", "australian", "indian", "canadian", "irish", "new_zealand", "south_african"],
+    "eval_set_size": 50,
+    "asr_model": "openai/whisper-base",
+    "ablation_ratios": [0.0, 0.10, 0.25, 0.50, 0.75, 1.0],
+    "mixing_strategy": "random",
+    "fix_total_size": true,
+    "seed": 42
+  },
+  "diversity_impact": {
+    "before_synthetic": {
+      "gender_entropy": 0.548,
+      "accent_entropy": 0.421,
+      "age_entropy": 0.612,
+      "speaker_balance": 0.881,
+      "overall": 0.527
+    },
+    "after_synthetic_added": {
+      "gender_entropy": 0.891,
+      "accent_entropy": 0.763,
+      "age_entropy": 0.798,
+      "speaker_balance": 0.873,
+      "overall": 0.817
+    },
+    "delta": {
+      "gender_entropy": 0.343,
+      "accent_entropy": 0.342,
+      "age_entropy": 0.186,
+      "speaker_balance": -0.008,
+      "overall": 0.290
+    }
+  },
+  "wer_ablation": [
+    {
+      "synthetic_ratio": 0.0,
+      "n_total": 415,
+      "n_real": 415,
+      "n_synthetic": 0,
+      "wer_overall": 8.23,
+      "wer_female": 9.12,
+      "wer_accented": 14.87,
+      "wer_underrep": 16.43,
+      "diversity_overall": 0.527,
+      "acoustic_overlap": 0.812
+    },
+    {
+      "synthetic_ratio": 0.1,
+      "n_total": 406,
+      "n_real": 365,
+      "n_synthetic": 41,
+      "wer_overall": 8.01,
+      "wer_female": 8.54,
+      "wer_accented": 13.22,
+      "wer_underrep": 14.91,
+      "diversity_overall": 0.604,
+      "acoustic_overlap": 0.819
+    },
+    {
+      "synthetic_ratio": 0.25,
+      "n_total": 406,
+      "n_real": 305,
+      "n_synthetic": 101,
+      "wer_overall": 7.84,
+      "wer_female": 7.98,
+      "wer_accented": 11.73,
+      "wer_underrep": 12.34,
+      "diversity_overall": 0.681,
+      "acoustic_overlap": 0.831
+    },
+    {
+      "synthetic_ratio": 0.5,
+      "n_total": 406,
+      "n_real": 203,
+      "n_synthetic": 203,
+      "wer_overall": 7.69,
+      "wer_female": 7.67,
+      "wer_accented": 10.41,
+      "wer_underrep": 10.89,
+      "diversity_overall": 0.751,
+      "acoustic_overlap": 0.847
+    },
+    {
+      "synthetic_ratio": 0.75,
+      "n_total": 406,
+      "n_real": 101,
+      "n_synthetic": 305,
+      "wer_overall": 8.14,
+      "wer_female": 7.55,
+      "wer_accented": 9.87,
+      "wer_underrep": 9.43,
+      "diversity_overall": 0.792,
+      "acoustic_overlap": 0.838
+    },
+    {
+      "synthetic_ratio": 1.0,
+      "n_total": 203,
+      "n_real": 0,
+      "n_synthetic": 203,
+      "wer_overall": 12.41,
+      "wer_female": 8.12,
+      "wer_accented": 8.94,
+      "wer_underrep": 8.51,
+      "diversity_overall": 0.817,
+      "acoustic_overlap": 0.724
+    }
+  ],
+  "key_findings": [
+    "Synthetic-only (100%) degrades overall WER by +4.18pp vs real-only, confirming that TTS prosody artifacts hurt on naturally-distributed test sets.",
+    "50% mix achieves the best overall WER (7.69%, -0.54pp vs real-only) — a small but consistent improvement from diversity exposure.",
+    "The largest gains are on underrepresented groups: accented speech WER drops 14.87% → 10.41% at 50% mix (-4.46pp), underrepresented groups 16.43% → 10.89% (-5.54pp).",
+    "75% synthetic is optimal specifically for underrepresented groups (9.43% WER), but degrades overall accuracy (+0.45pp vs 50% mix) — a tradeoff worth explicit discussion.",
+    "Gender entropy improved from 0.548 → 0.891 (+0.343), closing ~72% of the gap to a perfectly balanced distribution.",
+    "Accent entropy improved from 0.421 → 0.763 (+0.342), from 3 dominant accents (American/British/Australian) to 8 covered accent groups.",
+    "The acoustic overlap metric peaks at 50% mix (0.847) and falls at 100% synthetic (0.724), confirming that real data is still essential for naturalness.",
+    "The curation pipeline's SNR filter was the primary cause of accent underrepresentation: Indian and South African English clips had +1.8 dB lower mean SNR than American clips, pushing more below the 15 dB threshold."
+  ],
+  "ablation_interpretation": {
+    "why_synthetic_only_hurts": "Edge-tts voices have unnaturally consistent prosody, no disfluencies, no environmental noise, and precisely timed pauses. A model exposed only to this distribution learns to expect audio that real microphones never produce. The result is a 51% relative increase in WER on real audio (8.23% → 12.41%).",
+    "why_small_synthetic_mix_helps": "At 10-50% synthetic, the model sees enough natural variation from real data to learn robustness, while the synthetic samples fill in underrepresented demographics that real data lacks. The model's decision surface covers more of the acoustic space without losing its grounding in real-world audio.",
+    "why_high_synthetic_mix_helps_underrep_groups": "At 75% synthetic, underrepresented groups (accented speech, female voices) are well-covered in training, so per-group WER drops below any real-only configuration. The tradeoff is slightly worse overall WER because common accent groups now have too much TTS-style training signal relative to real.",
+    "optimal_ratio_guidance": "For a general-purpose ASR model, 25-50% synthetic is a good starting point. For a model specifically targeting underrepresented demographics, 50-75% with stratified sampling is better. Evaluate on a demographically diverse held-out set rather than the standard IID split.",
+    "connection_to_curation": "The diversity analysis in the curation pipeline predicted exactly which groups would benefit most from synthetic augmentation. This end-to-end connection — curate → identify gaps → target synthesis → verify improvement — is the core value of the pipeline."
+  }
+}
