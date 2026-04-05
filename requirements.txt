@@ -11,3 +11,10 @@ huggingface_hub>=0.17.0
 tqdm>=4.65.0
 audioread>=3.0.1
 resampy>=0.4.2
+
+# Synthetic data generation
+edge-tts>=6.1.9
+
+# STT evaluation
+openai-whisper>=20231117
+jiwer>=3.0.4
