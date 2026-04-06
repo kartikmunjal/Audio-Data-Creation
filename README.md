@@ -183,6 +183,65 @@ See [DATA_CARD.md](DATA_CARD.md) for the full analysis of what was included, exc
 
 ---
 
+## Integration with whisper-domain-adaptation
+
+The curated manifest this pipeline produces feeds directly into the
+[whisper-domain-adaptation](https://github.com/kartikmunjal/whisper-domain-adaptation) project,
+and the fine-tuned models from that project feed back here for more accurate domain evaluation.
+
+### Forward: curated data → Whisper fine-tuning
+
+`filtered_manifest.parquet` uses the same schema that whisper-domain-adaptation expects
+(`id, path, sentence, duration_sec, snr_db, silence_ratio, source`) so no conversion is needed.
+Run `import_from_curation.py` from that repo to split by domain vocabulary and prepare train/eval sets:
+
+```bash
+# in whisper-domain-adaptation/
+python scripts/import_from_curation.py \
+    --manifest ../Audio-Data-Creation/outputs/filtered_manifest.parquet \
+    --domain_vocab configs/medical_terms.txt \
+    --output_dir data/medical_curated
+```
+
+### Backward: fine-tuned model → domain-accurate WER
+
+Base Whisper WER on medical/financial corpora is artificially inflated (~34%) because it has
+never seen terms like "echocardiogram" or "EBITDA" — even perfectly curated audio will score
+poorly. This makes it hard to compare ablation splits: is higher WER due to worse data quality
+or just OOV vocabulary?
+
+`AblationEvaluator` now accepts `fine_tuned_model_path` to swap in the domain-adapted model:
+
+```python
+from audio_curation.synthetic.evaluator import AblationEvaluator
+
+evaluator = AblationEvaluator(
+    fine_tuned_model_path="../whisper-domain-adaptation/checkpoints/medical/adapter",
+    base_model_id="openai/whisper-small",
+)
+results = evaluator.run_ablation(splits, eval_manifest, use_whisper=True)
+```
+
+Or use the dedicated script to get a side-by-side comparison:
+
+```bash
+python scripts/evaluate_with_domain_model.py \
+    --manifest outputs/filtered_manifest.parquet \
+    --model_path ../whisper-domain-adaptation/checkpoints/medical/adapter \
+    --compare_base \
+    --output experiments/results/domain_eval.json
+```
+
+Example output:
+```
+Base Whisper WER:        34.1%  →  Fine-tuned WER: 18.3%  (Δ -15.8pp)
+  Relative improvement: 46.3%  (signal that was previously noise)
+```
+
+The loop: better curation → better fine-tuned model → cleaner WER signal → better curation.
+
+---
+
 ## Running Tests
 
 ```bash
