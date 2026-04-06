@@ -31,6 +31,23 @@ The key finding this design surfaces
     naturalness with synthetic-data coverage of underrepresented groups.
   - The entropy improvement from the diversity analysis predicts the WER
     improvement on underrepresented groups.
+
+Fine-tuned model support
+------------------------
+When evaluating domain-specific corpora (medical, financial), base Whisper's
+WER is artificially inflated by OOV terminology — not by data quality issues.
+Pass fine_tuned_model_path to route transcription through a domain-adapted
+Whisper from the whisper-domain-adaptation project instead. This gives accurate
+WER signal for domain data without polluting the metric with base-model OOV errors.
+
+    evaluator = AblationEvaluator(
+        fine_tuned_model_path="path/to/whisper-domain-adaptation/checkpoints/medical/adapter",
+        base_model_id="openai/whisper-small",
+    )
+
+The fine-tuned model uses the HuggingFace Transformers interface (not the
+openai-whisper package). Both backends expose the same transcribe_file()
+method so existing code needs no changes.
 """
 from __future__ import annotations
 
@@ -89,9 +106,19 @@ class AblationEvaluator:
     whisper_model : str
         Whisper model size: "tiny", "base", "small", "medium", "large".
         "base" is a good default for portfolio experiments (~75MB).
+        Ignored when fine_tuned_model_path is set.
     device : str
         "cpu" or "cuda". CPU is fine for base/tiny at this scale.
     output_dir : str | Path
+    fine_tuned_model_path : str | Path, optional
+        Path to a LoRA adapter directory produced by the whisper-domain-adaptation
+        project (e.g. checkpoints/medical/adapter). When set, transcription is
+        routed through the domain-adapted model instead of base Whisper.
+        Use this when evaluating domain-specific corpora (medical, financial)
+        to get accurate WER without base-model OOV inflation.
+    base_model_id : str
+        Base Whisper model ID for the HuggingFace backend. Only used when
+        fine_tuned_model_path is provided. Defaults to "openai/whisper-small".
     """
 
     def __init__(
@@ -99,12 +126,22 @@ class AblationEvaluator:
         whisper_model: str = "base",
         device: str = "cpu",
         output_dir: str | Path = "experiments/results",
+        fine_tuned_model_path: Optional[str | Path] = None,
+        base_model_id: str = "openai/whisper-small",
     ) -> None:
         self.whisper_model_name = whisper_model
         self.device = device
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self._whisper = None
+
+        # Fine-tuned model backend (whisper-domain-adaptation)
+        self.fine_tuned_model_path = (
+            Path(fine_tuned_model_path) if fine_tuned_model_path else None
+        )
+        self.base_model_id = base_model_id
+        self._ft_model = None
+        self._ft_processor = None
 
     def _load_whisper(self):
         if self._whisper is not None:
@@ -119,15 +156,76 @@ class AblationEvaluator:
             ) from e
         return self._whisper
 
+    def _load_fine_tuned(self):
+        """
+        Lazy-load the domain-adapted Whisper model from whisper-domain-adaptation.
+
+        The adapter is merged into the base weights for inference so there is
+        no runtime overhead compared to a standard HuggingFace model.
+        """
+        if self._ft_model is not None:
+            return self._ft_model, self._ft_processor
+        try:
+            import torch
+            from transformers import WhisperProcessor, WhisperForConditionalGeneration
+            from peft import PeftModel
+        except ImportError as e:
+            raise ImportError(
+                "transformers and peft are required for fine-tuned model evaluation. "
+                "Run: pip install transformers peft"
+            ) from e
+
+        adapter_path = str(self.fine_tuned_model_path)
+        logger.info("Loading fine-tuned Whisper from %s ...", adapter_path)
+
+        base = WhisperForConditionalGeneration.from_pretrained(self.base_model_id)
+        model = PeftModel.from_pretrained(base, adapter_path)
+        model = model.merge_and_unload()
+        model = model.to(self.device)
+        model.eval()
+
+        processor = WhisperProcessor.from_pretrained(adapter_path)
+
+        self._ft_model = model
+        self._ft_processor = processor
+        return self._ft_model, self._ft_processor
+
     # ------------------------------------------------------------------
     # Transcription
     # ------------------------------------------------------------------
 
     def transcribe_file(self, audio_path: str) -> str:
-        """Transcribe a single audio file using Whisper."""
+        """
+        Transcribe a single audio file.
+
+        Routes to the domain-adapted model when fine_tuned_model_path is set,
+        otherwise falls back to the standard openai-whisper backend.
+        """
+        if self.fine_tuned_model_path is not None:
+            return self._transcribe_file_hf(audio_path)
         model = self._load_whisper()
         result = model.transcribe(audio_path, language="en", fp16=False)
         return result["text"].strip()
+
+    def _transcribe_file_hf(self, audio_path: str) -> str:
+        """Transcribe using the HuggingFace fine-tuned model."""
+        import torch
+        import librosa
+
+        model, processor = self._load_fine_tuned()
+        audio, _ = librosa.load(audio_path, sr=16_000, mono=True)
+        input_features = processor.feature_extractor(
+            audio, sampling_rate=16_000, return_tensors="pt"
+        ).input_features.to(self.device)
+
+        with torch.no_grad():
+            predicted_ids = model.generate(
+                input_features,
+                forced_decoder_ids=processor.get_decoder_prompt_ids(
+                    language="en", task="transcribe"
+                ),
+            )
+        return processor.decode(predicted_ids[0], skip_special_tokens=True).strip()
 
     def transcribe_manifest(
         self,
