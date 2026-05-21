@@ -1,3 +1,5 @@
+[![CI](https://github.com/kartikmunjal/Audio-Data-Creation/actions/workflows/ci.yml/badge.svg)](https://github.com/kartikmunjal/Audio-Data-Creation/actions/workflows/ci.yml)
+
 # Audio Data Curation Pipeline
 
 A production-grade pipeline for curating audio training data. Built on top of Mozilla Common Voice to demonstrate the full curation lifecycle: quality filtering → deduplication → diversity analysis → data card.
@@ -233,14 +235,20 @@ python scripts/run_ablations.py \
     --output experiments/results/ablation_results.json
 ```
 
-### Relevant for TTS reward modeling
+### Three-repo pipeline
 
-The per-clip SNR, silence ratio, and diversity scores in `curation_report.json` can serve as
-input features for an acoustic reward model — they quantify recording condition quality in the
-same terms that matter for TTS preference optimization (background noise level, dynamic range,
-speaker balance). See the companion
-[RLHF pipeline repo](https://github.com/kartikmunjal/rlhf-and-reward-modelling-alt)
-for TTS RLHF implementation using acoustic reward signals.
+This repo is the first stage in a connected three-repo pipeline:
+
+```
+Audio-Data-Creation  →  whisper-domain-adaptation  →  feedback back here
+(this repo)              LoRA Whisper fine-tune          domain-accurate WER
+```
+
+1. **[whisper-domain-adaptation](https://github.com/kartikmunjal/whisper-domain-adaptation)** consumes `filtered_manifest.parquet` directly via `import_from_curation.py` — schemas are identical, no conversion needed. It fine-tunes Whisper-small with LoRA on the curated corpus, cutting domain-term WER from 48.7% → 22.1% on medical vocabulary.
+
+2. **Backward direction**: once a fine-tuned adapter exists, `AblationEvaluator` here accepts `fine_tuned_model_path` to use the domain-adapted model instead of base Whisper for evaluating subsequent curation runs. Base Whisper WER on medical audio is ~34% even on perfectly clean recordings (OOV inflation) — differences between ablation splits are invisible without the fine-tuned model.
+
+3. The per-clip SNR, silence ratio, and diversity scores in `curation_report.json` also feed into the [RLHF pipeline repo](https://github.com/kartikmunjal/rlhf-and-reward-modelling-alt)'s TTS reward modeling work — they quantify recording condition quality in the same terms that matter for acoustic reward signal design.
 
 ---
 
