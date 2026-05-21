@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Core signal-processing deps needed by the test suite
+          # (openai-whisper and edge-tts are scripts-only; excluded to keep CI fast)
+          pip install librosa numpy pandas scipy scikit-learn tqdm soundfile jiwer
+          # Install the package in editable mode so `from audio_curation.*` resolves
+          pip install -e .
+          pip install pytest
+
+      - name: Run tests
+        run: pytest tests/ -v --tb=short

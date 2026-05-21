@@ -49,19 +49,28 @@ Raw audio corpus
 audio-curation/
 ├── src/
 │   └── audio_curation/
-│       ├── quality.py        # SNR estimation, silence, clipping, duration
-│       ├── diversity.py      # Speaker demographics, accent entropy, domain
-│       ├── deduplication.py  # Exact hash + MFCC LSH near-duplicate detection
-│       └── pipeline.py       # Orchestrates all stages
+│       ├── quality.py          # SNR estimation, silence, clipping, duration
+│       ├── diversity.py        # Speaker demographics, accent entropy, domain
+│       ├── deduplication.py    # Exact hash + MFCC LSH near-duplicate detection
+│       ├── pipeline.py         # Orchestrates all stages
+│       └── synthetic/
+│           ├── gap_analyzer.py   # Identify underrepresented demographic groups
+│           ├── tts_generator.py  # Generate targeted samples via edge-tts voices
+│           ├── mixer.py          # Blend synthetic with real audio at a target ratio
+│           └── evaluator.py      # Ablation harness: WER before/after each split
 ├── scripts/
-│   ├── download_sample.py    # Pull N clips from Common Voice via HuggingFace
-│   ├── run_pipeline.py       # End-to-end pipeline CLI
-│   └── plot_report.py        # Generate figures from saved report
+│   ├── download_sample.py      # Pull N clips from Common Voice via HuggingFace
+│   ├── run_pipeline.py         # End-to-end curation pipeline CLI
+│   ├── plot_report.py          # Generate visualisations from curation_report.json
+│   ├── generate_synthetic.py   # Fill demographic gaps with TTS-generated samples
+│   ├── run_ablations.py        # Measure quality impact of each filter in isolation
+│   └── plot_ablations.py       # Visualise ablation results
 ├── tests/
 │   ├── test_quality.py
-│   └── test_deduplication.py
-├── outputs/                  # Filtered manifests and reports land here
-└── DATA_CARD.md              # Full curation findings and tradeoffs
+│   ├── test_deduplication.py
+│   └── test_synthetic.py
+├── outputs/                    # Filtered manifests and reports land here
+└── DATA_CARD.md                # Full curation findings, tradeoffs, and known biases
 ```
 
 ---
@@ -183,62 +192,55 @@ See [DATA_CARD.md](DATA_CARD.md) for the full analysis of what was included, exc
 
 ---
 
-## Integration with whisper-domain-adaptation
+## Integration with Downstream ASR / TTS Pipelines
 
-The curated manifest this pipeline produces feeds directly into the
-[whisper-domain-adaptation](https://github.com/kartikmunjal/whisper-domain-adaptation) project,
-and the fine-tuned models from that project feed back here for more accurate domain evaluation.
+The curated manifest produced by this pipeline is designed for direct use as a training manifest
+in Whisper, wav2vec2, EnCodec, or any custom ASR/TTS training workflow.
 
-### Forward: curated data → Whisper fine-tuning
+### Output schema
 
-`filtered_manifest.parquet` uses the same schema that whisper-domain-adaptation expects
-(`id, path, sentence, duration_sec, snr_db, silence_ratio, source`) so no conversion is needed.
-Run `import_from_curation.py` from that repo to split by domain vocabulary and prepare train/eval sets:
+`filtered_manifest.parquet` columns:
 
-```bash
-# in whisper-domain-adaptation/
-python scripts/import_from_curation.py \
-    --manifest ../Audio-Data-Creation/outputs/filtered_manifest.parquet \
-    --domain_vocab configs/medical_terms.txt \
-    --output_dir data/medical_curated
-```
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | str | Unique clip identifier |
+| `path` | str | Path to the audio file |
+| `sentence` | str | Transcript text |
+| `duration_sec` | float | Clip duration in seconds |
+| `snr_db` | float | Estimated SNR (reference-free) |
+| `silence_ratio` | float | Fraction of silent frames |
+| `source` | str | `"real"` or `"synthetic"` |
 
-### Backward: fine-tuned model → domain-accurate WER
+This schema is compatible with HuggingFace `Trainer`-based fine-tuning pipelines without a
+conversion step.
 
-Base Whisper WER on medical/financial corpora is artificially inflated (~34%) because it has
-never seen terms like "echocardiogram" or "EBITDA" — even perfectly curated audio will score
-poorly. This makes it hard to compare ablation splits: is higher WER due to worse data quality
-or just OOV vocabulary?
+### Synthetic augmentation for demographic gaps
 
-`AblationEvaluator` now accepts `fine_tuned_model_path` to swap in the domain-adapted model:
-
-```python
-from audio_curation.synthetic.evaluator import AblationEvaluator
-
-evaluator = AblationEvaluator(
-    fine_tuned_model_path="../whisper-domain-adaptation/checkpoints/medical/adapter",
-    base_model_id="openai/whisper-small",
-)
-results = evaluator.run_ablation(splits, eval_manifest, use_whisper=True)
-```
-
-Or use the dedicated script to get a side-by-side comparison:
+After curation, `scripts/generate_synthetic.py` identifies underrepresented demographic groups
+(by gender, age, accent) and generates targeted TTS samples using `edge-tts` to close the gap.
+The `AblationEvaluator` in `src/audio_curation/synthetic/evaluator.py` measures the WER impact
+of each synthetic mix ratio, enabling data-quality / compute tradeoff analysis:
 
 ```bash
-python scripts/evaluate_with_domain_model.py \
+python scripts/generate_synthetic.py \
     --manifest outputs/filtered_manifest.parquet \
-    --model_path ../whisper-domain-adaptation/checkpoints/medical/adapter \
-    --compare_base \
-    --output experiments/results/domain_eval.json
+    --output_dir data/synthetic \
+    --max_synthetic_ratio 0.3
+
+python scripts/run_ablations.py \
+    --manifest outputs/filtered_manifest.parquet \
+    --synthetic_dir data/synthetic \
+    --output experiments/results/ablation_results.json
 ```
 
-Example output:
-```
-Base Whisper WER:        34.1%  →  Fine-tuned WER: 18.3%  (Δ -15.8pp)
-  Relative improvement: 46.3%  (signal that was previously noise)
-```
+### Relevant for TTS reward modeling
 
-The loop: better curation → better fine-tuned model → cleaner WER signal → better curation.
+The per-clip SNR, silence ratio, and diversity scores in `curation_report.json` can serve as
+input features for an acoustic reward model — they quantify recording condition quality in the
+same terms that matter for TTS preference optimization (background noise level, dynamic range,
+speaker balance). See the companion
+[RLHF pipeline repo](https://github.com/kartikmunjal/rlhf-and-reward-modelling-alt)
+for TTS RLHF implementation using acoustic reward signals.
 
 ---
 
