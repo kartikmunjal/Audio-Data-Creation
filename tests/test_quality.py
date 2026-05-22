@@ -38,7 +38,11 @@ def make_silence(duration=2.0, sr=SR):
 
 class TestSNR:
     def test_clean_tone_high_snr(self):
-        audio = make_tone(amplitude=0.8) + make_noise(amplitude=0.001)
+        # Pure continuous tones have uniform frame RMS (P10≈P90→SNR≈0).
+        # Prefix with a noise-only section so the estimator has a real noise floor.
+        noise_floor = make_noise(duration=0.5, amplitude=0.001)
+        tone_section = make_tone(duration=1.5, amplitude=0.8) + make_noise(duration=1.5, amplitude=0.001)
+        audio = np.concatenate([noise_floor, tone_section])
         snr = estimate_snr(audio, SR)
         assert snr > 20, f"Expected high SNR for clean tone, got {snr:.1f}"
 
@@ -120,7 +124,9 @@ class TestQualityFilter:
         ))
 
     def test_clean_tone_passes(self):
-        audio = make_tone(duration=2.0, amplitude=0.5) + make_noise(duration=2.0, amplitude=0.001)
+        noise_floor = make_noise(duration=0.5, amplitude=0.001)
+        tone_section = make_tone(duration=1.5, amplitude=0.5) + make_noise(duration=1.5, amplitude=0.001)
+        audio = np.concatenate([noise_floor, tone_section])
         report = self.qf.inspect(audio, SR)
         assert report.passes, f"Expected pass, got: {report.fail_reasons}"
 
@@ -143,8 +149,10 @@ class TestQualityFilter:
         assert any("too_silent" in r for r in report.fail_reasons)
 
     def test_summarize_smoke(self):
+        noise_floor = make_noise(duration=0.5, amplitude=0.001)
+        tone_section = make_tone(duration=1.5) + make_noise(duration=1.5, amplitude=0.001)
         audios = [
-            make_tone(duration=2.0) + make_noise(duration=2.0, amplitude=0.001),
+            np.concatenate([noise_floor, tone_section]),
             make_silence(duration=2.0),
             np.ones(SR * 2, dtype=np.float32),
         ]

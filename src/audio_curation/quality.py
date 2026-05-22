@@ -88,6 +88,11 @@ def detect_silence_ratio(
     frame_len = int(frame_duration_ms / 1000 * sr)
     hop_len = frame_len // 2
 
+    # librosa.effects.split treats pure-zero audio as "all speech" when peak dB is -inf;
+    # guard here so pure silence correctly returns 1.0 on all platforms.
+    if np.max(np.abs(audio)) < 1e-8:
+        return 1.0
+
     intervals = librosa.effects.split(audio, top_db=top_db, frame_length=frame_len, hop_length=hop_len)
 
     if len(intervals) == 0:
