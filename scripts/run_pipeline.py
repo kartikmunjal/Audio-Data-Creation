@@ -15,6 +15,7 @@ Usage
 Prerequisites: run download_sample.py first, or supply your own manifest.
 """
 import argparse
+import hashlib
 import json
 import logging
 import sys
@@ -29,12 +30,13 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--manifest", default="data/raw/manifest.parquet")
     p.add_argument("--output_dir", default="outputs")
     p.add_argument("--min_snr", type=float, default=15.0)
-    p.add_argument("--max_snr", type=float, default=80.0)
     p.add_argument("--min_duration", type=float, default=0.5)
     p.add_argument("--max_duration", type=float, default=20.0)
     p.add_argument("--max_silence_ratio", type=float, default=0.4)
     p.add_argument("--dedup_threshold", type=float, default=0.97)
     p.add_argument("--target_sr", type=int, default=16_000)
+    p.add_argument("--remove_near_duplicates", action="store_true",
+                   help="Remove MFCC-LSH candidates. Requires a validated locked policy.")
     return p.parse_args()
 
 
@@ -67,9 +69,28 @@ def main() -> None:
         dedup_threshold=args.dedup_threshold,
         output_dir=args.output_dir,
         target_sr=args.target_sr,
+        remove_near_duplicates=args.remove_near_duplicates,
     )
 
-    filtered, report = pipeline.run(manifest, audio_col="path", id_col="id")
+    repo_root = Path(__file__).resolve().parents[1]
+    import subprocess
+    provenance = {
+        "schema_version": 1,
+        "generator": "scripts/run_pipeline.py",
+        "arguments": vars(args),
+        "manifest_sha256": hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+        "git_commit": subprocess.run(
+            ["git", "-C", str(repo_root), "rev-parse", "HEAD"],
+            check=True, capture_output=True, text=True,
+        ).stdout.strip(),
+        "git_dirty": bool(subprocess.run(
+            ["git", "-C", str(repo_root), "status", "--porcelain"],
+            check=True, capture_output=True, text=True,
+        ).stdout.strip()),
+    }
+    filtered, report = pipeline.run(
+        manifest, audio_col="path", id_col="id", run_metadata=provenance
+    )
 
     print("\n" + "=" * 60)
     print("CURATION SUMMARY")

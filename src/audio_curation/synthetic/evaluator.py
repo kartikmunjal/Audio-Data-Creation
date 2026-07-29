@@ -12,25 +12,18 @@ mixture ratio. Instead we use a two-pronged proxy:
      would see more acoustically diverse training signal. This is cheap and
      interpretable.
 
-  2. Whisper transcription WER on the training split itself (model required)
-     Use a frozen Whisper model to transcribe each sample and compare against
-     the ground truth sentence. This measures how well a state-of-the-art ASR
-     system already handles each data source — a proxy for trainability. Clean,
-     well-represented speech → lower WER → easier to learn from.
+  2. Frozen Whisper WER diagnostic (model required)
+     The fixed evaluation set is transcribed once. This characterizes the
+     frozen model and evaluation set only. It does not vary with the training
+     mixture and is not evidence of trainability or downstream benefit.
 
 Both metrics are computed per demographic group so we can isolate where
 synthetic data helps (underrepresented groups) vs. hurts (common groups where
 TTS artifacts introduce noise).
 
-The key finding this design surfaces
--------------------------------------
-  - Synthetic-only: good WER on groups the voices were trained for, but
-    slightly higher WER overall due to TTS prosody artifacts.
-  - Real-only: strong on common groups, poor on underrepresented ones.
-  - Mixed (25-50% synthetic): best overall WER because it combines real-data
-    naturalness with synthetic-data coverage of underrepresented groups.
-  - The entropy improvement from the diversity analysis predicts the WER
-    improvement on underrepresented groups.
+Any claim about the effect of a mixture on WER requires training matched models
+for that mixture under RESEARCH_PLAN.md. Acoustic overlap can motivate a
+hypothesis but is not a validated surrogate outcome.
 
 Fine-tuned model support
 ------------------------
@@ -360,6 +353,16 @@ class AblationEvaluator:
             If False, only computes acoustic overlap (fast, no GPU needed).
         """
         rows = []
+        frozen_eval_wer = None
+        if use_whisper and text_col in eval_manifest.columns:
+            eval_result = self.evaluate_split(
+                eval_manifest, audio_col=audio_col, text_col=text_col
+            )
+            frozen_eval_wer = eval_result["wer_overall"]
+            logger.warning(
+                "Frozen-model WER is a single evaluation-set diagnostic and "
+                "does not estimate the effect of any training mixture."
+            )
 
         for ratio, split_df in sorted(splits.items()):
             logger.info("Evaluating split ratio=%.2f (%d samples)...", ratio, len(split_df))
@@ -382,12 +385,8 @@ class AblationEvaluator:
                 overlap = self.acoustic_overlap(split_df, eval_manifest, audio_col=audio_col)
                 row["acoustic_overlap"] = round(overlap, 4)
 
-            # WER via Whisper (optional, expensive)
-            if use_whisper and text_col in eval_manifest.columns:
-                eval_result = self.evaluate_split(eval_manifest, audio_col=audio_col, text_col=text_col)
-                # Note: this WER is for the eval set only (fixed), so the interesting
-                # comparison here is acoustic_overlap vs. ratio
-                row["wer_eval"] = eval_result["wer_overall"]
+            if frozen_eval_wer is not None:
+                row["frozen_model_wer_diagnostic"] = frozen_eval_wer
 
             rows.append(row)
 

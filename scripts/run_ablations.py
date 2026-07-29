@@ -133,8 +133,8 @@ def main() -> None:
     cols_to_show = ["synthetic_ratio", "n_total", "n_real", "n_synthetic", "acoustic_overlap"]
     div_cols = [c for c in results_df.columns if c.startswith("diversity_")]
     cols_to_show.extend(div_cols)
-    if "wer_eval" in results_df.columns:
-        cols_to_show.append("wer_eval")
+    if "frozen_model_wer_diagnostic" in results_df.columns:
+        cols_to_show.append("frozen_model_wer_diagnostic")
 
     cols_present = [c for c in cols_to_show if c in results_df.columns]
     print(results_df[cols_present].to_string(index=False, float_format=lambda x: f"{x:.3f}"))
@@ -145,9 +145,8 @@ def main() -> None:
         print(f"\nBest acoustic overlap: ratio={best_row['synthetic_ratio']:.0%}  "
               f"overlap={best_row['acoustic_overlap']:.3f}")
 
-    if "wer_eval" in results_df.columns:
-        best_wer = results_df.loc[results_df["wer_eval"].idxmin()]
-        print(f"Best WER: ratio={best_wer['synthetic_ratio']:.0%}  WER={best_wer['wer_eval']:.1f}%")
+    if "frozen_model_wer_diagnostic" in results_df.columns:
+        print("\nFrozen-model WER is constant across ratios and is diagnostic only.")
 
     print(f"\nFull results: {args.output_dir}/ablation_results.csv")
 

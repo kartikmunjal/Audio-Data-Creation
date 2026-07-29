@@ -32,10 +32,15 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 def audio_md5(audio: np.ndarray) -> str:
-    """Byte-level MD5 hash. Catches only perfect duplicates."""
+    """Backward-compatible name for the canonical PCM SHA-256 fingerprint."""
+    return audio_sha256(audio)
+
+
+def audio_sha256(audio: np.ndarray) -> str:
+    """SHA-256 of canonical int16 mono PCM. Catches exact PCM duplicates."""
     # Quantize to int16 to normalize float precision noise
     pcm = (audio * 32767).astype(np.int16)
-    return hashlib.md5(pcm.tobytes()).hexdigest()
+    return hashlib.sha256(pcm.tobytes()).hexdigest()
 
 
 def compute_mfcc_embedding(
@@ -122,10 +127,12 @@ class DeduplicationEngine:
         similarity_threshold: float = 0.97,
         n_lsh_bits: int = 18,
         embedding_dim: int = 40,  # 2 * n_mfcc
+        remove_near_duplicates: bool = False,
     ) -> None:
         self.similarity_threshold = similarity_threshold
         self.lsh = RandomProjectionLSH(dim=embedding_dim, n_bits=n_lsh_bits)
         self._embedding_dim = embedding_dim
+        self.remove_near_duplicates = remove_near_duplicates
 
     # ------------------------------------------------------------------
     # Stage 1 — exact duplicates
@@ -142,7 +149,7 @@ class DeduplicationEngine:
         groups: dict[str, list[str]] = defaultdict(list)
 
         for uid, audio in tqdm(zip(ids, audio_list), total=len(ids), desc="Exact dedup"):
-            h = audio_md5(audio)
+            h = audio_sha256(audio)
             if h in seen:
                 groups[seen[h]].append(uid)
             else:
@@ -221,7 +228,11 @@ class DeduplicationEngine:
         near_groups = self.find_near_duplicates(ids, audio_list, sr_list, exact_dup_ids=exact_dup_ids)
         near_dup_ids: set[str] = set(uid for dups in near_groups.values() for uid in dups)
 
-        all_dup_ids = exact_dup_ids | near_dup_ids
+        # MFCC-LSH pairs are unvalidated candidates by default. Removing them
+        # requires an explicit, preregistered policy backed by a labeled audit.
+        all_dup_ids = exact_dup_ids | (
+            near_dup_ids if self.remove_near_duplicates else set()
+        )
         kept_ids = [uid for uid in ids if uid not in all_dup_ids]
 
         report = {
@@ -229,7 +240,11 @@ class DeduplicationEngine:
             "exact_duplicate_groups": len(exact_groups),
             "exact_duplicates_removed": len(exact_dup_ids),
             "near_duplicate_groups": len(near_groups),
-            "near_duplicates_removed": len(near_dup_ids),
+            "near_duplicates_removed": (
+                len(near_dup_ids) if self.remove_near_duplicates else 0
+            ),
+            "near_duplicate_candidates": len(near_dup_ids),
+            "near_duplicate_removal_enabled": self.remove_near_duplicates,
             "total_removed": len(all_dup_ids),
             "total_kept": len(kept_ids),
             "retention_rate": len(kept_ids) / max(len(ids), 1),
@@ -238,7 +253,7 @@ class DeduplicationEngine:
         logger.info(
             "Dedup: removed %d exact + %d near-dups; kept %d / %d (%.1f%%)",
             len(exact_dup_ids),
-            len(near_dup_ids),
+            len(near_dup_ids) if self.remove_near_duplicates else 0,
             len(kept_ids),
             len(ids),
             100 * len(kept_ids) / max(len(ids), 1),

@@ -7,6 +7,7 @@ and writes a summary report alongside the filtered manifest.
 from __future__ import annotations
 
 import json
+import hashlib
 import logging
 import time
 from pathlib import Path
@@ -45,9 +46,13 @@ class CurationPipeline:
         dedup_threshold: float = 0.97,
         output_dir: str | Path = "outputs",
         target_sr: int = 16_000,
+        remove_near_duplicates: bool = False,
     ) -> None:
         self.quality_filter = QualityFilter(quality_thresholds)
-        self.dedup_engine = DeduplicationEngine(similarity_threshold=dedup_threshold)
+        self.dedup_engine = DeduplicationEngine(
+            similarity_threshold=dedup_threshold,
+            remove_near_duplicates=remove_near_duplicates,
+        )
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.target_sr = target_sr
@@ -70,6 +75,7 @@ class CurationPipeline:
         manifest: pd.DataFrame,
         audio_col: str = "path",
         id_col: str = "id",
+        run_metadata: Optional[dict] = None,
     ) -> tuple[pd.DataFrame, dict]:
         """
         Curate a dataset given a manifest DataFrame.
@@ -94,26 +100,37 @@ class CurationPipeline:
         """
         start = time.time()
         logger.info("Starting curation pipeline on %d samples", len(manifest))
-        report: dict = {"n_input": len(manifest)}
+        missing = {audio_col, id_col} - set(manifest.columns)
+        if missing:
+            raise ValueError(f"Manifest missing required columns: {sorted(missing)}")
+        if manifest[id_col].isna().any() or manifest[id_col].duplicated().any():
+            raise ValueError(f"{id_col} must be non-null and unique")
+        report: dict = {"n_input": len(manifest), "provenance": run_metadata or {}}
 
         # ---- Stage 1: Load audio ----------------------------------------
         logger.info("Loading audio files...")
         audio_list: list[np.ndarray] = []
         sr_list: list[int] = []
         load_errors: list[str] = []
+        source_hashes: list[Optional[str]] = []
 
         for _, row in tqdm(manifest.iterrows(), total=len(manifest), desc="Loading audio"):
             try:
+                with open(row[audio_col], "rb") as handle:
+                    source_hash = hashlib.sha256(handle.read()).hexdigest()
                 audio, sr = self._load_audio(row[audio_col])
                 audio_list.append(audio)
                 sr_list.append(sr)
+                source_hashes.append(source_hash)
             except Exception as exc:
                 logger.warning("Failed to load %s: %s", row[audio_col], exc)
                 audio_list.append(np.zeros(self.target_sr, dtype=np.float32))
                 sr_list.append(self.target_sr)
                 load_errors.append(str(row[id_col]))
+                source_hashes.append(None)
 
         report["load_errors"] = len(load_errors)
+        report["load_error_ids"] = load_errors
 
         # ---- Stage 2: Quality filtering ---------------------------------
         logger.info("Running quality filters...")
@@ -129,6 +146,8 @@ class CurationPipeline:
         manifest["qf_duration_sec"] = [r.duration_sec for r in quality_reports]
         manifest["qf_silence_ratio"] = [r.silence_ratio for r in quality_reports]
         manifest["qf_passes"] = keep_mask
+        manifest["source_audio_sha256"] = source_hashes
+        manifest["qf_load_error"] = manifest[id_col].astype(str).isin(load_errors)
 
         # Filter
         quality_mask = np.array(keep_mask)
