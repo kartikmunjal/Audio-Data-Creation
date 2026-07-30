@@ -8,7 +8,7 @@
     "validation": "6c560e36bb8ea9baf6226f4d3ce3eea493a4a22bc4de6c3a7e33b0f29b16878f",
     "test": "e9e256c6a8bdbb16e2bdadacd004461220b2f7558fdd82d2f753c052cd939a69"
   },
-  "git_commit": "eef7d9abfa42ab846886a2226f91f0123b98af12",
+  "git_commit": "1d4f5825d3f4fc1e56d21a3b86050611f4358987",
   "git_dirty": false,
   "arm_counts": {
     "curation_control": 293,
@@ -22,17 +22,18 @@
   "augmentation_target_domain_fraction": 0.5,
   "voice_disjoint": true,
   "test_set_used_for_selection": false,
+  "manifest_path_base": "paired_whisper_repository_root",
   "quality_audit": {
-    "ledger": "experiments\\downstream_study\\quality_audit_ledger.csv",
+    "ledger": "experiments/downstream_study/quality_audit_ledger.csv",
     "n_rows": 100,
     "status": "pending_manual_labels"
   },
-  "curation_report_sha256": "9a8396cdc5c2ac549d85be3c3ddc88bb18ad9ca48380a25f20cba794cd251da1",
+  "curation_report_sha256": "cf23e89036c3f908082b9c1f9261e2a4e9f3729f1702d802d2aecc3cfcb5af9e",
   "arm_manifest_sha256": {
-    "curation_control": "047d6f67e19ee0ae7b7e9e1f0a1e9e1fa9c58ca6c1dee2c8a177e338fca4f9ff",
-    "curation_policy": "fe3fceb19484e3df06761332015a0105cd7baac7a7680ab6e81f7827337aa1a5",
-    "augmentation_control_common": "f879250a410cc33340bc969853772651bb465b85d749ec01ab64e548058d0a09",
-    "augmentation_targeted_50pct": "57bea564dbefd6ac1d29403cc68d3bbd32620fc6f4679ce6e77ad143473999c4",
-    "validation": "b2351b54d9df6b7c5f82f4fe08ed69b314c34118b9f64ae165e47e86935716fa"
+    "curation_control": "e7d7e2bec8a8407a56d78729d68f235bbb4b2128889a14e9979eaed83c24c86f",
+    "curation_policy": "d6f786a82813b6f58fab64787a922e5280d23a9dff1486752c44e95fb0629a6e",
+    "augmentation_control_common": "c409c40ff18a2740aab641b03f4ee6c83aac0a8ef938dcbe8d5ed4737e5edfd1",
+    "augmentation_targeted_50pct": "4a529255f5622a5edffcceeb7bfb570e93b4c3177950c7e1749f45da87ee6445",
+    "validation": "8c36ab74a8e1397e7cadf988f004f7d535658a5548965db0efaec69b8981615d"
   }
 }

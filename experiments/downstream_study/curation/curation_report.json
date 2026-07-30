@@ -9,7 +9,7 @@
       "validation": "6c560e36bb8ea9baf6226f4d3ce3eea493a4a22bc4de6c3a7e33b0f29b16878f",
       "test": "e9e256c6a8bdbb16e2bdadacd004461220b2f7558fdd82d2f753c052cd939a69"
     },
-    "git_commit": "eef7d9abfa42ab846886a2226f91f0123b98af12",
+    "git_commit": "1d4f5825d3f4fc1e56d21a3b86050611f4358987",
     "git_dirty": false
   },
   "load_errors": 0,
@@ -45,8 +45,8 @@
     "gender_distribution": {},
     "age_distribution": {},
     "accent_distribution": {},
-    "accent_entropy": NaN,
-    "speaker_imbalance_ratio": NaN,
+    "accent_entropy": null,
+    "speaker_imbalance_ratio": null,
     "sentence_length_stats": {
       "mean": 10.333333333333334,
       "median": 10.0,
@@ -76,8 +76,8 @@
     "gender_distribution": {},
     "age_distribution": {},
     "accent_distribution": {},
-    "accent_entropy": NaN,
-    "speaker_imbalance_ratio": NaN,
+    "accent_entropy": null,
+    "speaker_imbalance_ratio": null,
     "sentence_length_stats": {
       "mean": 10.334470989761092,
       "median": 10.0,
@@ -101,7 +101,7 @@
     },
     "diversity_scores": {}
   },
-  "elapsed_sec": 4.4,
+  "elapsed_sec": 4.6,
   "n_output": 293,
   "overall_retention_rate": 0.9965986394557823
 }
