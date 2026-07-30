@@ -36,6 +36,22 @@ def resolve_audio(frame: pd.DataFrame, source_root: Path) -> pd.DataFrame:
     return result
 
 
+def make_paths_portable(frame: pd.DataFrame, source_root: Path) -> pd.DataFrame:
+    """Store paths relative to the paired Whisper repository."""
+    result = frame.copy()
+    portable = []
+    for value in result.path:
+        path = Path(value).resolve()
+        try:
+            portable.append(str(path.relative_to(source_root)))
+        except ValueError as error:
+            raise ValueError(
+                f"Audio path is outside --source-root and cannot be serialized: {path}"
+            ) from error
+    result["path"] = portable
+    return result
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source-root", required=True)
@@ -110,8 +126,14 @@ def main() -> None:
         "augmentation_targeted_50pct": targeted,
         "validation": frames["validation"],
     }
-    for name, frame in arms.items():
+    portable_arms = {
+        name: make_paths_portable(frame, source) for name, frame in arms.items()
+    }
+    for name, frame in portable_arms.items():
         frame.to_parquet(output / f"{name}.parquet", index=False)
+    make_paths_portable(curated, source).to_parquet(
+        output / "curation" / "filtered_manifest.parquet", index=False
+    )
 
     inspected = pd.read_parquet(output / "curation" / "filtered_manifest.parquet")
     scored = frames["train"].merge(
@@ -129,6 +151,7 @@ def main() -> None:
         pass_rows.sample(n=n_pass, random_state=SEED) if n_pass else pass_rows,
     ]).sample(frac=1, random_state=SEED)
     audit = audit[["id", "path", "sentence", "voice", "policy_passes"]].copy()
+    audit = make_paths_portable(audit, source)
     audit["manual_acceptable"] = pd.NA
     audit["manual_notes"] = ""
     audit.to_csv(output / "quality_audit_ledger.csv", index=False)
@@ -142,6 +165,7 @@ def main() -> None:
         "augmentation_target_domain_fraction": float(targeted.is_domain.mean()),
         "voice_disjoint": True,
         "test_set_used_for_selection": False,
+        "manifest_path_base": "paired_whisper_repository_root",
         "quality_audit": {
             "ledger": str((output / "quality_audit_ledger.csv").relative_to(repo)),
             "n_rows": len(audit),
