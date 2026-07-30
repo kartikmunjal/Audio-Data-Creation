@@ -1,0 +1,107 @@
+{
+  "n_input": 294,
+  "provenance": {
+    "generator": "scripts/prepare_downstream_study.py",
+    "seed": 20260729,
+    "source_root": "C:\\Users\\Kunal Munjal\\Downloads\\whisper-domain-adaptation",
+    "source_manifest_sha256": {
+      "train": "415eedab115230e11a3441d222646ca350c30a4225685849d1e9c9cd3fed9755",
+      "validation": "6c560e36bb8ea9baf6226f4d3ce3eea493a4a22bc4de6c3a7e33b0f29b16878f",
+      "test": "e9e256c6a8bdbb16e2bdadacd004461220b2f7558fdd82d2f753c052cd939a69"
+    },
+    "git_commit": "eef7d9abfa42ab846886a2226f91f0123b98af12",
+    "git_dirty": false
+  },
+  "load_errors": 0,
+  "load_error_ids": [],
+  "quality": {
+    "total": 294,
+    "passed": 293,
+    "failed": 1,
+    "pass_rate": 0.9965986394557823,
+    "mean_snr_db": 45.535311913003724,
+    "mean_duration_sec": 4.722367346938776,
+    "mean_silence_ratio": 0.2939229992658796,
+    "clipping_rate": 0.0,
+    "fail_reason_counts": {
+      "too_silent (40.8% > 40.0%)": 1
+    }
+  },
+  "deduplication": {
+    "total_input": 293,
+    "exact_duplicate_groups": 0,
+    "exact_duplicates_removed": 0,
+    "near_duplicate_groups": 11,
+    "near_duplicates_removed": 0,
+    "near_duplicate_candidates": 278,
+    "near_duplicate_removal_enabled": false,
+    "total_removed": 0,
+    "total_kept": 293,
+    "retention_rate": 1.0
+  },
+  "diversity_before": {
+    "n_samples": 294,
+    "n_speakers": null,
+    "gender_distribution": {},
+    "age_distribution": {},
+    "accent_distribution": {},
+    "accent_entropy": NaN,
+    "speaker_imbalance_ratio": NaN,
+    "sentence_length_stats": {
+      "mean": 10.333333333333334,
+      "median": 10.0,
+      "p5": 8.0,
+      "p95": 14.0,
+      "std": 2.113933406764894
+    },
+    "vocabulary_size": 183,
+    "domain_coverage": {
+      "commands_pct": 0.0,
+      "phrases_pct": 100.0,
+      "read_speech_pct": 0.0
+    },
+    "duration_stats": {
+      "total_hours": 0.38566,
+      "mean_sec": 4.722367346938776,
+      "median_sec": 4.667999999999999,
+      "p5_sec": 3.84,
+      "p95_sec": 5.64,
+      "std_sec": 0.5759672450114182
+    },
+    "diversity_scores": {}
+  },
+  "diversity_after": {
+    "n_samples": 293,
+    "n_speakers": null,
+    "gender_distribution": {},
+    "age_distribution": {},
+    "accent_distribution": {},
+    "accent_entropy": NaN,
+    "speaker_imbalance_ratio": NaN,
+    "sentence_length_stats": {
+      "mean": 10.334470989761092,
+      "median": 10.0,
+      "p5": 8.0,
+      "p95": 14.0,
+      "std": 2.11745990484869
+    },
+    "vocabulary_size": 183,
+    "domain_coverage": {
+      "commands_pct": 0.0,
+      "phrases_pct": 100.0,
+      "read_speech_pct": 0.0
+    },
+    "duration_stats": {
+      "total_hours": 0.38463333333333327,
+      "mean_sec": 4.725870307167235,
+      "median_sec": 4.68,
+      "p5_sec": 3.84,
+      "p95_sec": 5.64,
+      "std_sec": 0.5738069429518083
+    },
+    "diversity_scores": {}
+  },
+  "elapsed_sec": 4.4,
+  "n_output": 293,
+  "overall_retention_rate": 0.9965986394557823
+}

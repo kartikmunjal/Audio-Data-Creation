@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "generator": "scripts/prepare_downstream_study.py",
+  "seed": 20260729,
+  "source_root": "C:\\Users\\Kunal Munjal\\Downloads\\whisper-domain-adaptation",
+  "source_manifest_sha256": {
+    "train": "415eedab115230e11a3441d222646ca350c30a4225685849d1e9c9cd3fed9755",
+    "validation": "6c560e36bb8ea9baf6226f4d3ce3eea493a4a22bc4de6c3a7e33b0f29b16878f",
+    "test": "e9e256c6a8bdbb16e2bdadacd004461220b2f7558fdd82d2f753c052cd939a69"
+  },
+  "git_commit": "eef7d9abfa42ab846886a2226f91f0123b98af12",
+  "git_dirty": false,
+  "arm_counts": {
+    "curation_control": 293,
+    "curation_policy": 293,
+    "augmentation_control_common": 24,
+    "augmentation_targeted_50pct": 24,
+    "validation": 98
+  },
+  "curation_matched_size": true,
+  "augmentation_matched_size": true,
+  "augmentation_target_domain_fraction": 0.5,
+  "voice_disjoint": true,
+  "test_set_used_for_selection": false,
+  "quality_audit": {
+    "ledger": "experiments\\downstream_study\\quality_audit_ledger.csv",
+    "n_rows": 100,
+    "status": "pending_manual_labels"
+  },
+  "curation_report_sha256": "9a8396cdc5c2ac549d85be3c3ddc88bb18ad9ca48380a25f20cba794cd251da1",
+  "arm_manifest_sha256": {
+    "curation_control": "047d6f67e19ee0ae7b7e9e1f0a1e9e1fa9c58ca6c1dee2c8a177e338fca4f9ff",
+    "curation_policy": "fe3fceb19484e3df06761332015a0105cd7baac7a7680ab6e81f7827337aa1a5",
+    "augmentation_control_common": "f879250a410cc33340bc969853772651bb465b85d749ec01ab64e548058d0a09",
+    "augmentation_targeted_50pct": "57bea564dbefd6ac1d29403cc68d3bbd32620fc6f4679ce6e77ad143473999c4",
+    "validation": "b2351b54d9df6b7c5f82f4fe08ed69b314c34118b9f64ae165e47e86935716fa"
+  }
+}
