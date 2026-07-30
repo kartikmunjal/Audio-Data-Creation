@@ -83,3 +83,24 @@ criteria above are unchanged.
   interval is generated, downstream results are reported as a comparison of
   the named policy, not as proof that the thresholds identify human-perceived
   quality.
+
+## Amendment 2 — controlled deduplication benchmark
+
+Locked 2026-07-30 before observing benchmark outcomes. The required
+deduplication validation is operationalized as a deterministic known-pair
+stress test over the financial training corpus:
+
+- Seeds and source selection are fixed by seed 20260729.
+- Fifty source clips each contribute two positive pairs: gain plus 80 ms
+  leading padding, and a 16 kHz → 14.4 kHz → 16 kHz resampling round trip.
+- One hundred negative pairs use distinct source IDs sampled without using
+  embedding scores.
+- The checked-in 18-bit random-projection LSH (seed 42) and cosine threshold
+  0.97 are evaluated without tuning.
+- LSH candidate recall, candidate precision, final precision, final recall,
+  and specificity report counts and two-sided Wilson 95% intervals.
+
+These labels establish recording identity under named perturbations; they are
+not human judgments of semantic or perceptual duplication. Near-duplicate
+removal remains disabled unless a separate natural-pair manual audit supports
+that broader claim.
