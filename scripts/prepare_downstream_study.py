@@ -27,6 +27,11 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def write_text_lf(path: Path, text: str) -> None:
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text)
+
+
 def resolve_audio(frame: pd.DataFrame, source_root: Path) -> pd.DataFrame:
     result = frame.copy()
     result["path"] = [
@@ -43,7 +48,7 @@ def make_paths_portable(frame: pd.DataFrame, source_root: Path) -> pd.DataFrame:
     for value in result.path:
         path = Path(value).resolve()
         try:
-            portable.append(str(path.relative_to(source_root)))
+            portable.append(path.relative_to(source_root).as_posix())
         except ValueError as error:
             raise ValueError(
                 f"Audio path is outside --source-root and cannot be serialized: {path}"
@@ -97,6 +102,13 @@ def main() -> None:
     )
     curated, curation_report = pipeline.run(
         frames["train"], run_metadata=run_metadata
+    )
+    curation_report_path = output / "curation" / "curation_report.json"
+    # Canonicalize generated text before hashing so artifacts are byte-stable
+    # across Windows and POSIX hosts.
+    write_text_lf(
+        curation_report_path,
+        json.dumps(json.loads(curation_report_path.read_text()), indent=2),
     )
     if not len(curated):
         raise RuntimeError("Quality policy retained zero training rows")
@@ -154,7 +166,10 @@ def main() -> None:
     audit = make_paths_portable(audit, source)
     audit["manual_acceptable"] = pd.NA
     audit["manual_notes"] = ""
-    audit.to_csv(output / "quality_audit_ledger.csv", index=False)
+    write_text_lf(
+        output / "quality_audit_ledger.csv",
+        audit.to_csv(index=False, lineterminator="\n"),
+    )
 
     report = {
         "schema_version": 1,
@@ -171,12 +186,12 @@ def main() -> None:
             "n_rows": len(audit),
             "status": "pending_manual_labels",
         },
-        "curation_report_sha256": sha256(output / "curation" / "curation_report.json"),
+        "curation_report_sha256": sha256(curation_report_path),
         "arm_manifest_sha256": {
             name: sha256(output / f"{name}.parquet") for name in arms
         },
     }
-    (output / "study_manifest.json").write_text(json.dumps(report, indent=2))
+    write_text_lf(output / "study_manifest.json", json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
 
 
