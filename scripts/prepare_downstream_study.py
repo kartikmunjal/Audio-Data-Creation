@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import subprocess
 import sys
 from pathlib import Path
@@ -30,6 +31,16 @@ def sha256(path: Path) -> str:
 def write_text_lf(path: Path, text: str) -> None:
     with path.open("w", encoding="utf-8", newline="\n") as handle:
         handle.write(text)
+
+
+def json_safe(value):
+    if isinstance(value, dict):
+        return {key: json_safe(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [json_safe(item) for item in value]
+    if isinstance(value, float) and not math.isfinite(value):
+        return None
+    return value
 
 
 def resolve_audio(frame: pd.DataFrame, source_root: Path) -> pd.DataFrame:
@@ -108,7 +119,11 @@ def main() -> None:
     # across Windows and POSIX hosts.
     write_text_lf(
         curation_report_path,
-        json.dumps(json.loads(curation_report_path.read_text()), indent=2),
+        json.dumps(
+            json_safe(json.loads(curation_report_path.read_text())),
+            indent=2,
+            allow_nan=False,
+        ),
     )
     if not len(curated):
         raise RuntimeError("Quality policy retained zero training rows")
@@ -182,7 +197,9 @@ def main() -> None:
         "test_set_used_for_selection": False,
         "manifest_path_base": "paired_whisper_repository_root",
         "quality_audit": {
-            "ledger": str((output / "quality_audit_ledger.csv").relative_to(repo)),
+            "ledger": (
+                output / "quality_audit_ledger.csv"
+            ).relative_to(repo).as_posix(),
             "n_rows": len(audit),
             "status": "pending_manual_labels",
         },
@@ -191,7 +208,10 @@ def main() -> None:
             name: sha256(output / f"{name}.parquet") for name in arms
         },
     }
-    write_text_lf(output / "study_manifest.json", json.dumps(report, indent=2))
+    write_text_lf(
+        output / "study_manifest.json",
+        json.dumps(report, indent=2, allow_nan=False),
+    )
     print(json.dumps(report, indent=2))
 
 
