@@ -49,3 +49,7 @@ foreach ($arm in $arms) {
     }
   }
 }
+
+Set-Location $repoRoot
+Invoke-CheckedPython scripts/summarize_downstream_study.py `
+  --whisper-root $WhisperRoot
