@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-30T22:41:24.213235+00:00",
+  "git_commit": "d7067cd2268076172d7cf415bbfc534f99a51388",
+  "git_dirty": false,
+  "arguments": {
+    "config": "C:\\Users\\Kunal Munjal\\Downloads\\whisper-domain-adaptation\\configs\\financial_finetune.yaml",
+    "train_manifest": "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation\\experiments\\downstream_study\\curation_policy.parquet",
+    "eval_manifest": "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation\\experiments\\downstream_study\\validation.parquet",
+    "output_dir": "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation\\checkpoints\\downstream_study\\curation_policy\\seed_55",
+    "num_epochs": null,
+    "learning_rate": null,
+    "batch_size": null,
+    "lora_r": null,
+    "seed": 55
+  },
+  "seed": 55,
+  "inputs": {
+    "C:\\Users\\Kunal Munjal\\Downloads\\whisper-domain-adaptation\\configs\\financial_finetune.yaml": "e2b1375245d3b7f718f51cbe856045f0f1cfb25d794a6ce5766839719cec4883",
+    "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation\\experiments\\downstream_study\\curation_policy.parquet": "d6f786a82813b6f58fab64787a922e5280d23a9dff1486752c44e95fb0629a6e",
+    "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation\\experiments\\downstream_study\\validation.parquet": "8c36ab74a8e1397e7cadf988f004f7d535658a5548965db0efaec69b8981615d"
+  },
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "torch": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "device": "NVIDIA GeForce RTX 3070",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "transformers": "4.57.6",
+      "peft": "0.20.0",
+      "datasets": "4.8.5",
+      "jiwer": "4.0.0",
+      "librosa": "0.11.0",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5"
+    }
+  }
+}

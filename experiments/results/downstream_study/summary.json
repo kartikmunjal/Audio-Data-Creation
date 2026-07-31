@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "contrasts": {
+    "curation": {
+      "control": "curation_control",
+      "treatment": "curation_policy",
+      "n_trials": 5,
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "metrics": {
+        "overall": {
+          "control_mean_wer": 0.14446,
+          "control_trial_values": [
+            0.2506,
+            0.1176,
+            0.1179,
+            0.1164,
+            0.1198
+          ],
+          "control_trial_bootstrap_95_ci": [
+            0.11717999999999999,
+            0.1976
+          ],
+          "treatment_mean_wer": 0.14462000000000003,
+          "treatment_trial_values": [
+            0.2506,
+            0.1183,
+            0.1183,
+            0.1161,
+            0.1198
+          ],
+          "treatment_trial_bootstrap_95_ci": [
+            0.11728000000000001,
+            0.19768
+          ],
+          "mean_paired_delta_treatment_minus_control": 0.00015080000000000003,
+          "paired_delta_trial_values": [
+            0.0,
+            0.000754,
+            0.000377,
+            -0.000377,
+            0.0
+          ],
+          "paired_delta_trial_bootstrap_95_ci": [
+            -0.0001508,
+            0.00045240000000000005
+          ],
+          "per_trial_paired_clip_bootstrap": [
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.000754,
+              "ci_low": 0.0,
+              "ci_high": 0.00336,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.000377,
+              "ci_low": 0.0,
+              "ci_high": 0.001313,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": -0.000377,
+              "ci_low": -0.000956,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            }
+          ]
+        },
+        "domain_terms": {
+          "control_mean_wer": 0.13843999999999998,
+          "control_trial_values": [
+            0.2526,
+            0.1095,
+            0.1099,
+            0.1083,
+            0.1119
+          ],
+          "control_trial_bootstrap_95_ci": [
+            0.1091,
+            0.1956
+          ],
+          "treatment_mean_wer": 0.1386,
+          "treatment_trial_values": [
+            0.2526,
+            0.1103,
+            0.1103,
+            0.1079,
+            0.1119
+          ],
+          "treatment_trial_bootstrap_95_ci": [
+            0.10918000000000001,
+            0.19568
+          ],
+          "mean_paired_delta_treatment_minus_control": 0.00016219999999999999,
+          "paired_delta_trial_values": [
+            0.0,
+            0.000811,
+            0.000406,
+            -0.000406,
+            0.0
+          ],
+          "paired_delta_trial_bootstrap_95_ci": [
+            -0.0001624,
+            0.0005675999999999999
+          ],
+          "per_trial_paired_clip_bootstrap": [
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.000811,
+              "ci_low": 0.0,
+              "ci_high": 0.003766,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.000406,
+              "ci_low": 0.0,
+              "ci_high": 0.001458,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": -0.000406,
+              "ci_low": -0.001032,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            }
+          ]
+        },
+        "common_terms": {
+          "control_mean_wer": 0.2234,
+          "control_trial_values": [
+            0.2234,
+            0.2234,
+            0.2234,
+            0.2234,
+            0.2234
+          ],
+          "control_trial_bootstrap_95_ci": [
+            0.2234,
+            0.2234
+          ],
+          "treatment_mean_wer": 0.2234,
+          "treatment_trial_values": [
+            0.2234,
+            0.2234,
+            0.2234,
+            0.2234,
+            0.2234
+          ],
+          "treatment_trial_bootstrap_95_ci": [
+            0.2234,
+            0.2234
+          ],
+          "mean_paired_delta_treatment_minus_control": 0.0,
+          "paired_delta_trial_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "paired_delta_trial_bootstrap_95_ci": [
+            0.0,
+            0.0
+          ],
+          "per_trial_paired_clip_bootstrap": [
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            }
+          ]
+        }
+      }
+    },
+    "targeted_augmentation": {
+      "control": "augmentation_control_common",
+      "treatment": "augmentation_targeted_50pct",
+      "n_trials": 5,
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ],
+      "metrics": {
+        "overall": {
+          "control_mean_wer": 0.10677999999999999,
+          "control_trial_values": [
+            0.107,
+            0.1059,
+            0.107,
+            0.107,
+            0.107
+          ],
+          "control_trial_bootstrap_95_ci": [
+            0.10633999999999999,
+            0.10700000000000001
+          ],
+          "treatment_mean_wer": 0.10633999999999999,
+          "treatment_trial_values": [
+            0.107,
+            0.1059,
+            0.1059,
+            0.1059,
+            0.107
+          ],
+          "treatment_trial_bootstrap_95_ci": [
+            0.1059,
+            0.10678000000000001
+          ],
+          "mean_paired_delta_treatment_minus_control": -0.000452,
+          "paired_delta_trial_values": [
+            0.0,
+            0.0,
+            -0.00113,
+            -0.00113,
+            0.0
+          ],
+          "paired_delta_trial_bootstrap_95_ci": [
+            -0.000904,
+            0.0
+          ],
+          "per_trial_paired_clip_bootstrap": [
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": -0.00113,
+              "ci_low": -0.005969,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": -0.00113,
+              "ci_low": -0.005601,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            }
+          ]
+        },
+        "domain_terms": {
+          "control_mean_wer": 0.1014,
+          "control_trial_values": [
+            0.1014,
+            0.1014,
+            0.1014,
+            0.1014,
+            0.1014
+          ],
+          "control_trial_bootstrap_95_ci": [
+            0.1014,
+            0.1014
+          ],
+          "treatment_mean_wer": 0.1014,
+          "treatment_trial_values": [
+            0.1014,
+            0.1014,
+            0.1014,
+            0.1014,
+            0.1014
+          ],
+          "treatment_trial_bootstrap_95_ci": [
+            0.1014,
+            0.1014
+          ],
+          "mean_paired_delta_treatment_minus_control": 0.0,
+          "paired_delta_trial_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "paired_delta_trial_bootstrap_95_ci": [
+            0.0,
+            0.0
+          ],
+          "per_trial_paired_clip_bootstrap": [
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            }
+          ]
+        },
+        "common_terms": {
+          "control_mean_wer": 0.17770000000000002,
+          "control_trial_values": [
+            0.1809,
+            0.1649,
+            0.1809,
+            0.1809,
+            0.1809
+          ],
+          "control_trial_bootstrap_95_ci": [
+            0.1713,
+            0.1809
+          ],
+          "treatment_mean_wer": 0.1713,
+          "treatment_trial_values": [
+            0.1809,
+            0.1649,
+            0.1649,
+            0.1649,
+            0.1809
+          ],
+          "treatment_trial_bootstrap_95_ci": [
+            0.1649,
+            0.17770000000000002
+          ],
+          "mean_paired_delta_treatment_minus_control": -0.006382799999999999,
+          "paired_delta_trial_values": [
+            0.0,
+            0.0,
+            -0.015957,
+            -0.015957,
+            0.0
+          ],
+          "paired_delta_trial_bootstrap_95_ci": [
+            -0.012765599999999998,
+            0.0
+          ],
+          "per_trial_paired_clip_bootstrap": [
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": -0.015957,
+              "ci_low": -0.050279,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": -0.015957,
+              "ci_low": -0.050562,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            },
+            {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_resamples": 10000
+            }
+          ]
+        }
+      }
+    }
+  },
+  "claim_boundary": "The quality audit ledger remains pending; curation results compare a named policy but do not validate human-perceived quality labels."
+}

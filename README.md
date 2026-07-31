@@ -8,14 +8,28 @@ diversity reporting.
 
 ## Research status
 
-The software pipeline is implemented, but downstream ASR-benefit claims are not
-currently verified. Previous example files reported ratio-specific WER and a
-“50% synthetic optimum,” although the checked-in evaluator did not train a
-model on each mixture. Those values have been withdrawn.
+The software pipeline and the preregistered downstream ASR experiment are
+complete. The generated
+[five-seed report](experiments/results/downstream_study/summary.md) compares two
+paired interventions on the same real Earnings-21 evaluation set:
 
-The locked validation protocol is in [RESEARCH_PLAN.md](RESEARCH_PLAN.md).
-Frozen-model WER and MFCC nearest-neighbor overlap are diagnostic measurements;
-neither is evidence that training on a curation policy improves ASR.
+- The named curation policy is neutral: overall ΔWER is +0.02 percentage
+  points (95% trial-bootstrap CI -0.02 to +0.05; `N_trials=5`).
+- Replacing half of a 24-clip training set with targeted financial utterances
+  changes overall WER by -0.05 points (-0.09 to 0.00). The apparent change is
+  confined to the eight-clip common-control slice; domain WER is unchanged.
+
+These small, boundary-touching effects do not support a beneficial or optimal
+policy claim. Previous example files that called a “50% synthetic optimum”
+without training every mixture were withdrawn. The locked protocol and claim
+rules are in [RESEARCH_PLAN.md](RESEARCH_PLAN.md); all reported values regenerate
+from primary per-seed predictions with 10,000 paired bootstrap resamples.
+
+The controlled MFCC-LSH benchmark records 57% candidate recall (95% Wilson CI
+47.2–66.3%) and 74.0% precision (63.3–82.5%) on identity-preserving
+perturbations versus distinct-source negatives. It therefore supports the
+current decision to keep automatic near-duplicate removal disabled. This is a
+controlled identity benchmark, not human semantic-pair validation.
 
 ## Pipeline
 
@@ -61,15 +75,20 @@ Primary outputs:
 
 ## Research-grade acceptance boundary
 
-No quality threshold, deduplication threshold, or synthetic-data ratio will be
-called beneficial or optimal until:
+The downstream five-seed requirement is now satisfied, and its null/near-null
+result is reported above. No quality threshold, deduplication threshold, or
+synthetic-data ratio will be called beneficial or optimal unless:
 
 - the quality policy is compared with manually labeled clips;
 - deduplication precision and recall are measured on labeled pairs;
 - speaker-disjoint train/validation/test partitions are fixed first;
-- each curation policy trains the same downstream ASR recipe;
-- five paired trials are complete; and
-- WER differences carry `N_trials=5` and paired 95% confidence intervals.
+- each curation policy trains the same downstream ASR recipe; and
+- WER differences carry paired 95% confidence intervals.
+
+The manual listening-quality ledger remains pending genuine human labels. The
+repository does not infer those labels from signal heuristics or fabricate
+them. Until it is completed, the downstream comparison evaluates a named
+machine policy, not validated human-perceived audio quality.
 
 Demographic metadata is reported with missingness. Metadata attached to a TTS
 voice is not treated as observed human demographic identity.
