@@ -25,11 +25,17 @@ without training every mixture were withdrawn. The locked protocol and claim
 rules are in [RESEARCH_PLAN.md](RESEARCH_PLAN.md); all reported values regenerate
 from primary per-seed predictions with 10,000 paired bootstrap resamples.
 
-The controlled MFCC-LSH benchmark records 57% candidate recall (95% Wilson CI
+The controlled [MFCC-LSH benchmark](experiments/results/dedup_validation/summary.md)
+records 57% candidate recall (95% Wilson CI
 47.2–66.3%) and 74.0% precision (63.3–82.5%) on identity-preserving
 perturbations versus distinct-source negatives. It therefore supports the
 current decision to keep automatic near-duplicate removal disabled. This is a
 controlled identity benchmark, not human semantic-pair validation.
+
+The committed evidence package contains 20 downstream ASR reports (four
+conditions × five seeds), their run-provenance records, the fixed manifests,
+and both machine-readable JSON and rendered Markdown summaries. Large model
+weights and source audio remain excluded from Git.
 
 ## Pipeline
 
@@ -97,6 +103,24 @@ voice is not treated as observed human demographic identity.
 
 ```bash
 pytest -q
+```
+
+## Regenerating reported tables
+
+No README result is hand-calculated. Regenerate the controlled deduplication
+table directly from its committed JSON report:
+
+```bash
+python scripts/render_dedup_validation.py
+```
+
+Regenerate the downstream five-seed table from the committed per-seed
+predictions, using the adjacent Whisper repository for the shared WER analyzer:
+
+```bash
+python -m pip install -e ../whisper-domain-adaptation
+python scripts/summarize_downstream_study.py \
+  --whisper-root ../whisper-domain-adaptation
 ```
 
 ## License
