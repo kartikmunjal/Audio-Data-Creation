@@ -25,6 +25,8 @@ data/raw/*.parquet
 *.mp3
 *.flac
 *.ogg
+*.tar.gz
+data/openslr31_pilot/
 .DS_Store
 *.log
 wandb/

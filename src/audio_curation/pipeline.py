@@ -144,6 +144,8 @@ class CurationPipeline:
         manifest = manifest.copy()
         manifest["qf_snr_db"] = [r.snr_db for r in quality_reports]
         manifest["qf_duration_sec"] = [r.duration_sec for r in quality_reports]
+        if "duration_sec" not in manifest.columns:
+            manifest["duration_sec"] = manifest["qf_duration_sec"]
         manifest["qf_silence_ratio"] = [r.silence_ratio for r in quality_reports]
         manifest["qf_passes"] = keep_mask
         manifest["source_audio_sha256"] = source_hashes

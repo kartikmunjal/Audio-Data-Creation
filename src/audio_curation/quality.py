@@ -220,6 +220,8 @@ class QualityFilter:
         for r in reports:
             all_reasons.extend(r.fail_reasons)
 
+        categories = [reason.split(" ", 1)[0] for reason in all_reasons]
+
         return {
             "total": len(reports),
             "passed": sum(r.passes for r in reports),
@@ -230,4 +232,5 @@ class QualityFilter:
             "mean_silence_ratio": float(np.mean([r.silence_ratio for r in reports])),
             "clipping_rate": float(np.mean([r.is_clipped for r in reports])),
             "fail_reason_counts": dict(Counter(all_reasons)),
+            "fail_category_counts": dict(Counter(categories)),
         }

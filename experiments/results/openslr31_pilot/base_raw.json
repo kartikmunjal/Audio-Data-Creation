@@ -1,0 +1,1329 @@
+{
+  "model": "openai/whisper-small",
+  "eval_manifest": "data\\openslr31_pilot\\whisper_raw.parquet",
+  "n_samples": 250,
+  "wer": {
+    "overall": 0.0404,
+    "domain_terms": NaN,
+    "common_terms": 0.0404,
+    "n_domain_utterances": 0,
+    "n_common_utterances": 250
+  },
+  "uncertainty": {
+    "overall": {
+      "estimate": 0.04042,
+      "ci_low": 0.032589,
+      "ci_high": 0.048859,
+      "n_resamples": 10000
+    },
+    "domain_terms": {
+      "estimate": NaN,
+      "ci_low": NaN,
+      "ci_high": NaN,
+      "n_resamples": 10000
+    },
+    "common_terms": {
+      "estimate": 0.04042,
+      "ci_low": 0.032589,
+      "ci_high": 0.048859,
+      "n_resamples": 10000
+    }
+  },
+  "n_trials": 1,
+  "predictions": [
+    {
+      "id": "1272-135031-0000",
+      "reference": "BECAUSE YOU WERE SLEEPING INSTEAD OF CONQUERING THE LOVELY ROSE PRINCESS HAS BECOME A FIDDLE WITHOUT A BOW WHILE POOR SHAGGY SITS THERE A COOING DOVE",
+      "hypothesis": " Because you were sleeping instead of conquering, the lovely rose princess has become a fiddle without a bow. All poor shaggy sits there, a cooing dove."
+    },
+    {
+      "id": "1272-135031-0001",
+      "reference": "HE HAS GONE AND GONE FOR GOOD ANSWERED POLYCHROME WHO HAD MANAGED TO SQUEEZE INTO THE ROOM BESIDE THE DRAGON AND HAD WITNESSED THE OCCURRENCES WITH MUCH INTEREST",
+      "hypothesis": " He has gone, and gone for good,\" answered Polychrome, who had managed to squeeze into the room beside the dragon, and had witnessed the occurrences with much interest."
+    },
+    {
+      "id": "1272-135031-0002",
+      "reference": "I HAVE REMAINED A PRISONER ONLY BECAUSE I WISHED TO BE ONE AND WITH THIS HE STEPPED FORWARD AND BURST THE STOUT CHAINS AS EASILY AS IF THEY HAD BEEN THREADS",
+      "hypothesis": " I have remained a prisoner only because I wished to be one.\" And with this he stepped forward and burst the stout chains as easily as if they had been threads."
+    },
+    {
+      "id": "1272-135031-0003",
+      "reference": "THE LITTLE GIRL HAD BEEN ASLEEP BUT SHE HEARD THE RAPS AND OPENED THE DOOR",
+      "hypothesis": " The little girl had been asleep, but she heard the wraps and opened the door."
+    },
+    {
+      "id": "1272-135031-0004",
+      "reference": "THE KING HAS FLED IN DISGRACE AND YOUR FRIENDS ARE ASKING FOR YOU",
+      "hypothesis": " The king has fled to disgrace and your friends are asking for you."
+    },
+    {
+      "id": "1272-135031-0005",
+      "reference": "I BEGGED RUGGEDO LONG AGO TO SEND HIM AWAY BUT HE WOULD NOT DO SO",
+      "hypothesis": " I begged Ruggedo a long ago to send him away, but he would not do so."
+    },
+    {
+      "id": "1272-135031-0006",
+      "reference": "I ALSO OFFERED TO HELP YOUR BROTHER TO ESCAPE BUT HE WOULD NOT GO",
+      "hypothesis": " I also offered to help your brother to escape, but he would not go."
+    },
+    {
+      "id": "1272-135031-0007",
+      "reference": "HE EATS AND SLEEPS VERY STEADILY REPLIED THE NEW KING",
+      "hypothesis": " He eats and sleeps very steadily, replied the new king."
+    },
+    {
+      "id": "1272-135031-0008",
+      "reference": "I HOPE HE DOESN'T WORK TOO HARD SAID SHAGGY",
+      "hypothesis": " I hope it doesn't work too hard, since shaggy."
+    },
+    {
+      "id": "1272-135031-0009",
+      "reference": "HE DOESN'T WORK AT ALL",
+      "hypothesis": " he doesn't work at all."
+    },
+    {
+      "id": "1272-135031-0010",
+      "reference": "IN FACT THERE IS NOTHING HE CAN DO IN THESE DOMINIONS AS WELL AS OUR NOMES WHOSE NUMBERS ARE SO GREAT THAT IT WORRIES US TO KEEP THEM ALL BUSY",
+      "hypothesis": " In fact, there is nothing he can do in these dominions as well as our gnomes whose numbers are so great that it worries us to keep them all busy."
+    },
+    {
+      "id": "1272-135031-0011",
+      "reference": "NOT EXACTLY RETURNED KALIKO",
+      "hypothesis": " Not exactly, we've turned calico."
+    },
+    {
+      "id": "1272-135031-0012",
+      "reference": "WHERE IS MY BROTHER NOW",
+      "hypothesis": " Where is my brother now?"
+    },
+    {
+      "id": "1272-135031-0013",
+      "reference": "INQUIRED SHAGGY IN THE METAL FOREST",
+      "hypothesis": " inquired Shaggy in the Middle Forest."
+    },
+    {
+      "id": "1272-135031-0014",
+      "reference": "WHERE IS THAT",
+      "hypothesis": " Where is that?"
+    },
+    {
+      "id": "1272-135031-0015",
+      "reference": "THE METAL FOREST IS IN THE GREAT DOMED CAVERN THE LARGEST IN ALL OUR DOMINIONS REPLIED KALIKO",
+      "hypothesis": " The Middle Forest is in the great domed cavern, the largest in all our dominions, replied Calico."
+    },
+    {
+      "id": "1272-135031-0016",
+      "reference": "KALIKO HESITATED",
+      "hypothesis": " Calico hesitated."
+    },
+    {
+      "id": "1272-135031-0017",
+      "reference": "HOWEVER IF WE LOOK SHARP WE MAY BE ABLE TO DISCOVER ONE OF THESE SECRET WAYS",
+      "hypothesis": " However, if we look sharp, we may be able to discover one of these secret ways."
+    },
+    {
+      "id": "1272-135031-0018",
+      "reference": "OH NO I'M QUITE SURE HE DIDN'T",
+      "hypothesis": " Oh no, I'm quite sure he didn't."
+    },
+    {
+      "id": "1272-135031-0019",
+      "reference": "THAT'S FUNNY REMARKED BETSY THOUGHTFULLY",
+      "hypothesis": " That's funny, remarked Betsy thoughtfully."
+    },
+    {
+      "id": "1272-135031-0020",
+      "reference": "I DON'T BELIEVE ANN KNEW ANY MAGIC OR SHE'D HAVE WORKED IT BEFORE",
+      "hypothesis": " I don't believe Ann knew any magic or she'd have worked it before."
+    },
+    {
+      "id": "1272-135031-0021",
+      "reference": "I DO NOT KNOW CONFESSED SHAGGY",
+      "hypothesis": " I do not know, confessed Shaggy."
+    },
+    {
+      "id": "1272-135031-0022",
+      "reference": "TRUE AGREED KALIKO",
+      "hypothesis": " True, agreed Calico."
+    },
+    {
+      "id": "1272-135031-0023",
+      "reference": "KALIKO WENT TO THE BIG GONG AND POUNDED ON IT JUST AS RUGGEDO USED TO DO BUT NO ONE ANSWERED THE SUMMONS",
+      "hypothesis": " Calico went to the big gong and pounded on it just as Virgo used to do, but no one answered the summons."
+    },
+    {
+      "id": "1272-135031-0024",
+      "reference": "HAVING RETURNED TO THE ROYAL CAVERN KALIKO FIRST POUNDED THE GONG AND THEN SAT IN THE THRONE WEARING RUGGEDO'S DISCARDED RUBY CROWN AND HOLDING IN HIS HAND THE SCEPTRE WHICH RUGGEDO HAD SO OFTEN THROWN AT HIS HEAD",
+      "hypothesis": " Having returned to the Royal Cavern, Calico first pounded the gong and then sat in the throne, wearing Regato's discarded ruby crown and holding in his hand the scepter which Regato had so often thrown at his head."
+    },
+    {
+      "id": "1272-141231-0000",
+      "reference": "A MAN SAID TO THE UNIVERSE SIR I EXIST",
+      "hypothesis": " A man said to the universe, Sir, I exist."
+    },
+    {
+      "id": "1272-141231-0001",
+      "reference": "SWEAT COVERED BRION'S BODY TRICKLING INTO THE TIGHT LOINCLOTH THAT WAS THE ONLY GARMENT HE WORE",
+      "hypothesis": " Sweat covered Brion's body, trickling into the tight-loin cloth that was the only garment he wore."
+    },
+    {
+      "id": "1272-141231-0002",
+      "reference": "THE CUT ON HIS CHEST STILL DRIPPING BLOOD THE ACHE OF HIS OVERSTRAINED EYES EVEN THE SOARING ARENA AROUND HIM WITH THE THOUSANDS OF SPECTATORS WERE TRIVIALITIES NOT WORTH THINKING ABOUT",
+      "hypothesis": " The cut on his chest still dripping blood. The ache of his overstrained eyes. Even the soaring arena around him with the thousands of spectators, retrievalities not worth thinking about."
+    },
+    {
+      "id": "1272-141231-0003",
+      "reference": "HIS INSTANT OF PANIC WAS FOLLOWED BY A SMALL SHARP BLOW HIGH ON HIS CHEST",
+      "hypothesis": " His instant panic was followed by a small sharp blow high on his chest."
+    },
+    {
+      "id": "1272-141231-0004",
+      "reference": "ONE MINUTE A VOICE SAID AND THE TIME BUZZER SOUNDED",
+      "hypothesis": " One minute, a voice said, and a time buzzer sounded."
+    },
+    {
+      "id": "1272-141231-0005",
+      "reference": "A MINUTE IS NOT A VERY LARGE MEASURE OF TIME AND HIS BODY NEEDED EVERY FRACTION OF IT",
+      "hypothesis": " A minute is not a very large measure of time, and his body needed every fraction of it."
+    },
+    {
+      "id": "1272-141231-0006",
+      "reference": "THE BUZZER'S WHIRR TRIGGERED HIS MUSCLES INTO COMPLETE RELAXATION",
+      "hypothesis": " The buzzers were triggered his muscles into complete relaxation."
+    },
+    {
+      "id": "1272-141231-0007",
+      "reference": "ONLY HIS HEART AND LUNGS WORKED ON AT A STRONG MEASURED RATE",
+      "hypothesis": " Only his heart and lungs worked on at a strong, measured rate."
+    },
+    {
+      "id": "1272-141231-0008",
+      "reference": "HE WAS IN REVERIE SLIDING ALONG THE BORDERS OF CONSCIOUSNESS",
+      "hypothesis": " He was in the river, sliding along the borders of consciousness."
+    },
+    {
+      "id": "1272-141231-0009",
+      "reference": "THE CONTESTANTS IN THE TWENTIES NEEDED UNDISTURBED REST THEREFORE NIGHTS IN THE DORMITORIES WERE AS QUIET AS DEATH",
+      "hypothesis": " The contestants in the 20s needed undisturbed rest. Therefore, knights in the dormitories were as quiet as death."
+    },
+    {
+      "id": "1272-141231-0010",
+      "reference": "PARTICULARLY SO ON THIS LAST NIGHT WHEN ONLY TWO OF THE LITTLE CUBICLES WERE OCCUPIED THE THOUSANDS OF OTHERS STANDING WITH DARK EMPTY DOORS",
+      "hypothesis": " Particularly so, on this last night, when only two of the little cubicles were occupied, the thousands of others standing with dark, empty doors."
+    },
+    {
+      "id": "1272-141231-0011",
+      "reference": "THE OTHER VOICE SNAPPED WITH A HARSH URGENCY CLEARLY USED TO COMMAND",
+      "hypothesis": " The other voice snapped with a harsh urgency, clearly used to command."
+    },
+    {
+      "id": "1272-141231-0012",
+      "reference": "I'M HERE BECAUSE THE MATTER IS OF UTMOST IMPORTANCE AND BRANDD IS THE ONE I MUST SEE NOW STAND ASIDE",
+      "hypothesis": " I'm here because the matter is of utmost importance, and brand is the one I must see. Now stand aside."
+    },
+    {
+      "id": "1272-141231-0013",
+      "reference": "THE TWENTIES",
+      "hypothesis": " the 20s"
+    },
+    {
+      "id": "1272-141231-0014",
+      "reference": "HE MUST HAVE DRAWN HIS GUN BECAUSE THE INTRUDER SAID QUICKLY PUT THAT AWAY YOU'RE BEING A FOOL OUT",
+      "hypothesis": " He must have drawn his gun because the intruder said quickly, but that away you're being a fool. Out."
+    },
+    {
+      "id": "1272-141231-0015",
+      "reference": "THERE WAS SILENCE THEN AND STILL WONDERING BRION WAS ONCE MORE ASLEEP",
+      "hypothesis": " There was silence then, and, still wondering, Brienne was once more asleep."
+    },
+    {
+      "id": "1272-141231-0016",
+      "reference": "TEN SECONDS",
+      "hypothesis": " 10 seconds."
+    },
+    {
+      "id": "1272-141231-0017",
+      "reference": "HE ASKED THE HANDLER WHO WAS KNEADING HIS ACHING MUSCLES",
+      "hypothesis": " He asked the handler who was kneading his aching muscles."
+    },
+    {
+      "id": "1272-141231-0018",
+      "reference": "A RED HAIRED MOUNTAIN OF A MAN WITH AN APPARENTLY INEXHAUSTIBLE STORE OF ENERGY",
+      "hypothesis": " A red-haired mountain of a man with an apparently inexhaustible store of energy."
+    },
+    {
+      "id": "1272-141231-0019",
+      "reference": "THERE COULD BE LITTLE ART IN THIS LAST AND FINAL ROUND OF FENCING",
+      "hypothesis": " There could be little art in this last and final round of fencing."
+    },
+    {
+      "id": "1272-141231-0020",
+      "reference": "JUST THRUST AND PARRY AND VICTORY TO THE STRONGER",
+      "hypothesis": " Just thrust and parry and victory to the stronger."
+    },
+    {
+      "id": "1272-141231-0021",
+      "reference": "EVERY MAN WHO ENTERED THE TWENTIES HAD HIS OWN TRAINING TRICKS",
+      "hypothesis": " Every man who entered the 20s had his own training tricks."
+    },
+    {
+      "id": "1272-141231-0022",
+      "reference": "THERE APPEARED TO BE AN IMMEDIATE ASSOCIATION WITH THE DEATH TRAUMA AS IF THE TWO WERE INEXTRICABLY LINKED INTO ONE",
+      "hypothesis": " There appeared to be an immediate association with the death trauma, as if the two were inextricably linked into one."
+    },
+    {
+      "id": "1272-141231-0023",
+      "reference": "THE STRENGTH THAT ENABLES SOMEONE IN A TRANCE TO HOLD HIS BODY STIFF AND UNSUPPORTED EXCEPT AT TWO POINTS THE HEAD AND HEELS",
+      "hypothesis": " The strength that enables someone in a trance to hold his body stiff and unsupported except at two points, the head and heels."
+    },
+    {
+      "id": "1272-141231-0024",
+      "reference": "THIS IS PHYSICALLY IMPOSSIBLE WHEN CONSCIOUS",
+      "hypothesis": " This is physically impossible when conscious."
+    },
+    {
+      "id": "1272-141231-0025",
+      "reference": "OTHERS HAD DIED BEFORE DURING THE TWENTIES AND DEATH DURING THE LAST ROUND WAS IN SOME WAYS EASIER THAN DEFEAT",
+      "hypothesis": " Others had died before during the 20s, and death during the last round was in some ways easier than defeat."
+    },
+    {
+      "id": "1272-141231-0026",
+      "reference": "BREATHING DEEPLY BRION SOFTLY SPOKE THE AUTO HYPNOTIC PHRASES THAT TRIGGERED THE PROCESS",
+      "hypothesis": " Breathing deeply, Brienne softly spoke the auto-hypnotic phrases that triggered the process."
+    },
+    {
+      "id": "1272-141231-0027",
+      "reference": "WHEN THE BUZZER SOUNDED HE PULLED HIS FOIL FROM HIS SECOND'S STARTLED GRASP AND RAN FORWARD",
+      "hypothesis": " When the buzzer sounded, he pulled his foil from his second startled grasp and ran forward."
+    },
+    {
+      "id": "1272-141231-0028",
+      "reference": "IROLG LOOKED AMAZED AT THE SUDDEN FURY OF THE ATTACK THEN SMILED",
+      "hypothesis": " I rolled, clicked the maze at the sudden fury of the attack, then smiled."
+    },
+    {
+      "id": "1272-141231-0029",
+      "reference": "HE THOUGHT IT WAS A LAST BURST OF ENERGY HE KNEW HOW CLOSE THEY BOTH WERE TO EXHAUSTION",
+      "hypothesis": " He thought it was the last burst of energy. He knew how close they both were to exhaustion."
+    },
+    {
+      "id": "1272-141231-0030",
+      "reference": "BRION SAW SOMETHING CLOSE TO PANIC ON HIS OPPONENT'S FACE WHEN THE MAN FINALLY RECOGNIZED HIS ERROR",
+      "hypothesis": " Brion saw something close to panic on his opponent's face when the man finally recognized his error."
+    },
+    {
+      "id": "1272-141231-0031",
+      "reference": "A WAVE OF DESPAIR ROLLED OUT FROM IROLG BRION SENSED IT AND KNEW THE FIFTH POINT WAS HIS",
+      "hypothesis": " A wave of despair rolled out from Irogg, re-insensed it, and knew the fifth point was his."
+    },
+    {
+      "id": "1272-141231-0032",
+      "reference": "THEN THE POWERFUL TWIST THAT THRUST IT ASIDE IN AND UNDER THE GUARD",
+      "hypothesis": " Then the powerful twist that's rest of the side, in and under the guard."
+    },
+    {
+      "id": "1462-170142-0000",
+      "reference": "THE LAST TWO DAYS OF THE VOYAGE BARTLEY FOUND ALMOST INTOLERABLE",
+      "hypothesis": " The last two days of the voyage Bartley found almost intolerable."
+    },
+    {
+      "id": "1462-170142-0001",
+      "reference": "EMERGING AT EUSTON AT HALF PAST THREE O'CLOCK IN THE AFTERNOON ALEXANDER HAD HIS LUGGAGE SENT TO THE SAVOY AND DROVE AT ONCE TO BEDFORD SQUARE",
+      "hypothesis": " Emerging at Houston at half past three o'clock in the afternoon, Alexander had his luggage sent to the Savoy and drove it once to Bedford Square."
+    },
+    {
+      "id": "1462-170142-0002",
+      "reference": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+      "hypothesis": " She blushed and smiled and fumbled his card in her confusion before she ran upstairs."
+    },
+    {
+      "id": "1462-170142-0003",
+      "reference": "THE ROOM WAS EMPTY WHEN HE ENTERED",
+      "hypothesis": " The room was empty when he entered."
+    },
+    {
+      "id": "1462-170142-0004",
+      "reference": "A COAL FIRE WAS CRACKLING IN THE GRATE AND THE LAMPS WERE LIT FOR IT WAS ALREADY BEGINNING TO GROW DARK OUTSIDE",
+      "hypothesis": " A coal fire was crackling in the grate, and the lamps were lit, for it was already beginning to grow dark outside."
+    },
+    {
+      "id": "1462-170142-0005",
+      "reference": "SHE CALLED HIS NAME ON THE THRESHOLD BUT IN HER SWIFT FLIGHT ACROSS THE ROOM SHE FELT A CHANGE IN HIM AND CAUGHT HERSELF UP SO DEFTLY THAT HE COULD NOT TELL JUST WHEN SHE DID IT",
+      "hypothesis": " She called his name on the threshold, but in her swift flight across the room she felt a change in him and caught herself up so deftly that he could not tell just when she did it."
+    },
+    {
+      "id": "1462-170142-0006",
+      "reference": "SHE MERELY BRUSHED HIS CHEEK WITH HER LIPS AND PUT A HAND LIGHTLY AND JOYOUSLY ON EITHER SHOULDER",
+      "hypothesis": " She merely brushed his cheek with her lips and put a hand lightly and joyously on either shoulder."
+    },
+    {
+      "id": "1462-170142-0007",
+      "reference": "I NEVER DREAMED IT WOULD BE YOU BARTLEY",
+      "hypothesis": " I never dreamed it would be you, Bartley."
+    },
+    {
+      "id": "1462-170142-0008",
+      "reference": "WHEN DID YOU COME BARTLEY AND HOW DID IT HAPPEN YOU HAVEN'T SPOKEN A WORD",
+      "hypothesis": " When did you come, Bartley, and how did it happen? You haven't spoken a word."
+    },
+    {
+      "id": "1462-170142-0009",
+      "reference": "SHE LOOKED AT HIS HEAVY SHOULDERS AND BIG DETERMINED HEAD THRUST FORWARD LIKE A CATAPULT IN LEASH",
+      "hypothesis": " She looked at his heavy shoulders and big, determined head, thrust forward like a catapult in leash."
+    },
+    {
+      "id": "1462-170142-0010",
+      "reference": "I'LL DO ANYTHING YOU WISH ME TO BARTLEY SHE SAID TREMULOUSLY",
+      "hypothesis": " I'll do anything you wish me to, Bartley,\" she said tremulously."
+    },
+    {
+      "id": "1462-170142-0011",
+      "reference": "HE PULLED UP A WINDOW AS IF THE AIR WERE HEAVY",
+      "hypothesis": " He pulled up a window as if the air were heavy."
+    },
+    {
+      "id": "1462-170142-0012",
+      "reference": "HILDA WATCHED HIM FROM HER CORNER TREMBLING AND SCARCELY BREATHING DARK SHADOWS GROWING ABOUT HER EYES",
+      "hypothesis": " Hilda watched him from her corner, trembling and scarcely breathing, dark shadows growing about her eyes."
+    },
+    {
+      "id": "1462-170142-0013",
+      "reference": "IT IT HASN'T ALWAYS MADE YOU MISERABLE HAS IT",
+      "hypothesis": " It hasn't always made you miserable, has it?"
+    },
+    {
+      "id": "1462-170142-0014",
+      "reference": "ALWAYS BUT IT'S WORSE NOW",
+      "hypothesis": " Always, but it's worse now."
+    },
+    {
+      "id": "1462-170142-0015",
+      "reference": "IT'S UNBEARABLE IT TORTURES ME EVERY MINUTE",
+      "hypothesis": " It's unbearable. It tortures me every minute."
+    },
+    {
+      "id": "1462-170142-0016",
+      "reference": "I AM NOT A MAN WHO CAN LIVE TWO LIVES HE WENT ON FEVERISHLY EACH LIFE SPOILS THE OTHER",
+      "hypothesis": " I am not a man who can live two lives,\" he went on feverishly. Each life spoils the other."
+    },
+    {
+      "id": "1462-170142-0017",
+      "reference": "I GET NOTHING BUT MISERY OUT OF EITHER",
+      "hypothesis": " I get nothing but misery out of either."
+    },
+    {
+      "id": "1462-170142-0018",
+      "reference": "THERE IS THIS DECEPTION BETWEEN ME AND EVERYTHING",
+      "hypothesis": " There is this deception between me and everything."
+    },
+    {
+      "id": "1462-170142-0019",
+      "reference": "AT THAT WORD DECEPTION SPOKEN WITH SUCH SELF CONTEMPT THE COLOR FLASHED BACK INTO HILDA'S FACE AS SUDDENLY AS IF SHE HAD BEEN STRUCK BY A WHIPLASH",
+      "hypothesis": " At that word, deception, spoken with such self-contempt, the color flashed back into Hilda's face as suddenly as if she had been struck by a whiplash."
+    },
+    {
+      "id": "1462-170142-0020",
+      "reference": "SHE BIT HER LIP AND LOOKED DOWN AT HER HANDS WHICH WERE CLASPED TIGHTLY IN FRONT OF HER",
+      "hypothesis": " She bit her lip and looked down at her hands, which were clasped tightly in front of her."
+    },
+    {
+      "id": "1462-170142-0021",
+      "reference": "COULD YOU COULD YOU SIT DOWN AND TALK ABOUT IT QUIETLY BARTLEY AS IF I WERE A FRIEND AND NOT SOME ONE WHO HAD TO BE DEFIED",
+      "hypothesis": " Could you, could you sit down and talk about it quietly, Bartley, as if I were a friend, and not someone who had to be defied?"
+    },
+    {
+      "id": "1462-170142-0022",
+      "reference": "HE DROPPED BACK HEAVILY INTO HIS CHAIR BY THE FIRE",
+      "hypothesis": " He dropped back heavily into his chair by the fire."
+    },
+    {
+      "id": "1462-170142-0023",
+      "reference": "I HAVE THOUGHT ABOUT IT UNTIL I AM WORN OUT",
+      "hypothesis": " I have thought about it until I am worn out."
+    },
+    {
+      "id": "1462-170142-0024",
+      "reference": "AFTER THE VERY FIRST",
+      "hypothesis": " after the very first"
+    },
+    {
+      "id": "1462-170142-0025",
+      "reference": "HILDA'S FACE QUIVERED BUT SHE WHISPERED YES I THINK IT MUST HAVE BEEN",
+      "hypothesis": " Hilda's face quivered, but she whispered, Yes, I think it must have been."
+    },
+    {
+      "id": "1462-170142-0026",
+      "reference": "SHE PRESSED HIS HAND GENTLY IN GRATITUDE WEREN'T YOU HAPPY THEN AT ALL",
+      "hypothesis": " She pressed his hand gently in gratitude. Weren't you happy then at all?"
+    },
+    {
+      "id": "1462-170142-0027",
+      "reference": "SOMETHING OF THEIR TROUBLING SWEETNESS CAME BACK TO ALEXANDER TOO",
+      "hypothesis": " Something of their troubling sweetness came back to Alexander, too."
+    },
+    {
+      "id": "1462-170142-0028",
+      "reference": "PRESENTLY IT STOLE BACK TO HIS COAT SLEEVE",
+      "hypothesis": " Presently, it stole back to his coat sleeve."
+    },
+    {
+      "id": "1462-170142-0029",
+      "reference": "YES HILDA I KNOW THAT HE SAID SIMPLY",
+      "hypothesis": " Yes, Hilda, I know that,\" he said simply."
+    },
+    {
+      "id": "1462-170142-0030",
+      "reference": "I UNDERSTAND BARTLEY I WAS WRONG",
+      "hypothesis": " I understand, Bartley. I was wrong."
+    },
+    {
+      "id": "1462-170142-0031",
+      "reference": "SHE LISTENED INTENTLY BUT SHE HEARD NOTHING BUT THE CREAKING OF HIS CHAIR",
+      "hypothesis": " She listened intently, but she heard nothing but the creaking of his chair."
+    },
+    {
+      "id": "1462-170142-0032",
+      "reference": "YOU WANT ME TO SAY IT SHE WHISPERED",
+      "hypothesis": " You want me to say it?\" she whispered."
+    },
+    {
+      "id": "1462-170142-0033",
+      "reference": "BARTLEY LEANED HIS HEAD IN HIS HANDS AND SPOKE THROUGH HIS TEETH",
+      "hypothesis": " Bartley leaned his head in his hands and spoke through his teeth."
+    },
+    {
+      "id": "1462-170142-0034",
+      "reference": "IT'S GOT TO BE A CLEAN BREAK HILDA",
+      "hypothesis": " It's got to be a clean break, Hilda."
+    },
+    {
+      "id": "1462-170142-0035",
+      "reference": "OH BARTLEY WHAT AM I TO DO",
+      "hypothesis": " Oh Bartley, what am I to do?"
+    },
+    {
+      "id": "1462-170142-0036",
+      "reference": "YOU ASK ME TO STAY AWAY FROM YOU BECAUSE YOU WANT ME",
+      "hypothesis": " You ask me to stay away from you because you want me?"
+    },
+    {
+      "id": "1462-170142-0037",
+      "reference": "I WILL ASK THE LEAST IMAGINABLE BUT I MUST HAVE SOMETHING",
+      "hypothesis": " I will ask the least imaginable, but I must have something."
+    },
+    {
+      "id": "1462-170142-0038",
+      "reference": "HILDA SAT ON THE ARM OF IT AND PUT HER HANDS LIGHTLY ON HIS SHOULDERS",
+      "hypothesis": " Hilda sat on the arm of it and put her hands lightly on his shoulders."
+    },
+    {
+      "id": "1462-170142-0039",
+      "reference": "YOU SEE LOVING SOME ONE AS I LOVE YOU MAKES THE WHOLE WORLD DIFFERENT",
+      "hypothesis": " You see, loving someone as I love you makes the whole world different."
+    },
+    {
+      "id": "1462-170142-0040",
+      "reference": "AND THEN YOU CAME BACK NOT CARING VERY MUCH BUT IT MADE NO DIFFERENCE",
+      "hypothesis": " And then you came back, not caring very much, but it made no difference."
+    },
+    {
+      "id": "1462-170142-0041",
+      "reference": "SHE SLID TO THE FLOOR BESIDE HIM AS IF SHE WERE TOO TIRED TO SIT UP ANY LONGER",
+      "hypothesis": " She slid to the floor beside him, as if she were too tired to sit up any longer."
+    },
+    {
+      "id": "1462-170142-0042",
+      "reference": "DON'T CRY DON'T CRY HE WHISPERED",
+      "hypothesis": " Don't cry, don't cry,\" he whispered."
+    },
+    {
+      "id": "1462-170145-0000",
+      "reference": "ON THE LAST SATURDAY IN APRIL THE NEW YORK TIMES PUBLISHED AN ACCOUNT OF THE STRIKE COMPLICATIONS WHICH WERE DELAYING ALEXANDER'S NEW JERSEY BRIDGE AND STATED THAT THE ENGINEER HIMSELF WAS IN TOWN AND AT HIS OFFICE ON WEST TENTH STREET",
+      "hypothesis": " On the last Saturday in April, the New York Times published an account of the strike complications which were delaying Alexander's New Jersey Bridge and stated that the engineer himself was in town and at his office on West 10th Street."
+    },
+    {
+      "id": "1462-170145-0001",
+      "reference": "OVER THE FIREPLACE THERE WAS A LARGE OLD FASHIONED GILT MIRROR",
+      "hypothesis": " Over the fireplace, there was a large, old-fashioned guilt mirror."
+    },
+    {
+      "id": "1462-170145-0002",
+      "reference": "HE ROSE AND CROSSED THE ROOM QUICKLY",
+      "hypothesis": " He rose and crossed the room quickly."
+    },
+    {
+      "id": "1462-170145-0003",
+      "reference": "OF COURSE I KNOW BARTLEY SHE SAID AT LAST THAT AFTER THIS YOU WON'T OWE ME THE LEAST CONSIDERATION BUT WE SAIL ON TUESDAY",
+      "hypothesis": " Of course I know, Bartley,\" she said at last, that after this you won't owe me the least consideration. But we sail on Tuesday."
+    },
+    {
+      "id": "1462-170145-0004",
+      "reference": "I SAW THAT INTERVIEW IN THE PAPER YESTERDAY TELLING WHERE YOU WERE AND I THOUGHT I HAD TO SEE YOU THAT'S ALL GOOD NIGHT I'M GOING NOW",
+      "hypothesis": " I saw that interview in the paper yesterday, telling where you were, and I thought I had to see you. That's all. Good night. I'm going now."
+    },
+    {
+      "id": "1462-170145-0005",
+      "reference": "LET ME TAKE OFF YOUR COAT AND YOUR BOOTS THEY'RE OOZING WATER",
+      "hypothesis": " Let me take off your coat and your boots, they're oozing water."
+    },
+    {
+      "id": "1462-170145-0006",
+      "reference": "IF YOU'D SENT ME A NOTE OR TELEPHONED ME OR ANYTHING",
+      "hypothesis": " If you'd sent me a note or telephone to me or anything."
+    },
+    {
+      "id": "1462-170145-0007",
+      "reference": "I TOLD MYSELF THAT IF I WERE REALLY THINKING OF YOU AND NOT OF MYSELF A LETTER WOULD BE BETTER THAN NOTHING",
+      "hypothesis": " I told myself that if I were really thinking of you and not of myself, a letter would be better than nothing."
+    },
+    {
+      "id": "1462-170145-0008",
+      "reference": "HE PAUSED THEY NEVER DID TO ME",
+      "hypothesis": " He paused. They never did to me."
+    },
+    {
+      "id": "1462-170145-0009",
+      "reference": "OH BARTLEY DID YOU WRITE TO ME",
+      "hypothesis": " Oh Bartley, did you write to me?"
+    },
+    {
+      "id": "1462-170145-0010",
+      "reference": "ALEXANDER SLIPPED HIS ARM ABOUT HER",
+      "hypothesis": " Alexander slipped his arm about her."
+    },
+    {
+      "id": "1462-170145-0011",
+      "reference": "I THINK I HAVE FELT THAT YOU WERE COMING",
+      "hypothesis": " I think I have felt that you were coming."
+    },
+    {
+      "id": "1462-170145-0012",
+      "reference": "HE BENT HIS FACE OVER HER HAIR",
+      "hypothesis": " He bent his face over her hair."
+    },
+    {
+      "id": "1462-170145-0013",
+      "reference": "AND I SHE WHISPERED I FELT THAT YOU WERE FEELING THAT",
+      "hypothesis": " And I, she whispered, I felt that you were feeling that."
+    },
+    {
+      "id": "1462-170145-0014",
+      "reference": "BUT WHEN I CAME I THOUGHT I HAD BEEN MISTAKEN",
+      "hypothesis": " But when I came, I thought I had been mistaken."
+    },
+    {
+      "id": "1462-170145-0015",
+      "reference": "I'VE BEEN UP IN CANADA WITH MY BRIDGE AND I ARRANGED NOT TO COME TO NEW YORK UNTIL AFTER YOU HAD GONE",
+      "hypothesis": " I've been up in Canada with my bridge, and I arranged not to come to New York until after you had gone."
+    },
+    {
+      "id": "1462-170145-0016",
+      "reference": "THEN WHEN YOUR MANAGER ADDED TWO MORE WEEKS I WAS ALREADY COMMITTED",
+      "hypothesis": " Then when your manager added two more weeks, I was already committed."
+    },
+    {
+      "id": "1462-170145-0017",
+      "reference": "I'M GOING TO DO WHAT YOU ASKED ME TO DO WHEN YOU WERE IN LONDON",
+      "hypothesis": " I'm going to do what you asked me to do when you were in London."
+    },
+    {
+      "id": "1462-170145-0018",
+      "reference": "ONLY I'LL DO IT MORE COMPLETELY",
+      "hypothesis": " Only I'll do it more completely."
+    },
+    {
+      "id": "1462-170145-0019",
+      "reference": "THEN YOU DON'T KNOW WHAT YOU'RE TALKING ABOUT",
+      "hypothesis": " then you don't know what you're talking about."
+    },
+    {
+      "id": "1462-170145-0020",
+      "reference": "YES I KNOW VERY WELL",
+      "hypothesis": " Yes, I know very well."
+    },
+    {
+      "id": "1462-170145-0021",
+      "reference": "ALEXANDER FLUSHED ANGRILY",
+      "hypothesis": " Alexander flushed angrily."
+    },
+    {
+      "id": "1462-170145-0022",
+      "reference": "I DON'T KNOW WHAT I OUGHT TO SAY BUT I DON'T BELIEVE YOU'D BE HAPPY TRULY I DON'T AREN'T YOU TRYING TO FRIGHTEN ME",
+      "hypothesis": " I don't know what I ought to say, but I don't believe you'd be happy. Truly I don't. Aren't you trying to frighten me?"
+    },
+    {
+      "id": "174-168635-0000",
+      "reference": "HE HAD NEVER BEEN FATHER LOVER HUSBAND FRIEND",
+      "hypothesis": " He had never been father, lover, husband, friend."
+    },
+    {
+      "id": "174-168635-0001",
+      "reference": "THE HEART OF THAT EX CONVICT WAS FULL OF VIRGINITY",
+      "hypothesis": " The heart of that X convict was full of virginity."
+    },
+    {
+      "id": "174-168635-0002",
+      "reference": "HIS SISTER AND HIS SISTER'S CHILDREN HAD LEFT HIM ONLY A VAGUE AND FAR OFF MEMORY WHICH HAD FINALLY ALMOST COMPLETELY VANISHED HE HAD MADE EVERY EFFORT TO FIND THEM AND NOT HAVING BEEN ABLE TO FIND THEM HE HAD FORGOTTEN THEM",
+      "hypothesis": " His sister and his sister's children had left him only a vague and far-off memory which had finally almost completely vanished. He had made every effort to find them, and not having been able to find them, he had forgotten them."
+    },
+    {
+      "id": "174-168635-0003",
+      "reference": "HE SUFFERED ALL THE PANGS OF A MOTHER AND HE KNEW NOT WHAT IT MEANT FOR THAT GREAT AND SINGULAR MOVEMENT OF A HEART WHICH BEGINS TO LOVE IS A VERY OBSCURE AND A VERY SWEET THING",
+      "hypothesis": " He suffered all the pangs of a mother, and he knew not what it meant. For that great and singular movement of a heart which begins to love is a very obscure and a very sweet thing."
+    },
+    {
+      "id": "174-168635-0004",
+      "reference": "ONLY AS HE WAS FIVE AND FIFTY AND COSETTE EIGHT YEARS OF AGE ALL THAT MIGHT HAVE BEEN LOVE IN THE WHOLE COURSE OF HIS LIFE FLOWED TOGETHER INTO A SORT OF INEFFABLE LIGHT",
+      "hypothesis": " Only as he was five and fifty, and cosette eight years of age, all that might have been love in the whole course of his life flowed together into a sort of ineffable light."
+    },
+    {
+      "id": "174-168635-0005",
+      "reference": "COSETTE ON HER SIDE HAD ALSO UNKNOWN TO HERSELF BECOME ANOTHER BEING POOR LITTLE THING",
+      "hypothesis": " Cosette, on her side, had also, unknown to herself, become another being. Poor little thing."
+    },
+    {
+      "id": "174-168635-0006",
+      "reference": "SHE FELT THAT WHICH SHE HAD NEVER FELT BEFORE A SENSATION OF EXPANSION",
+      "hypothesis": " She felt that which she had never felt before. A sensation of expansion."
+    },
+    {
+      "id": "174-168635-0007",
+      "reference": "THE MAN NO LONGER PRODUCED ON HER THE EFFECT OF BEING OLD OR POOR SHE THOUGHT JEAN VALJEAN HANDSOME JUST AS SHE THOUGHT THE HOVEL PRETTY",
+      "hypothesis": " The man no longer produced on her the effect of being old or poor. She thought Jean Valjean handsome, just as she thought the hovel pretty."
+    },
+    {
+      "id": "174-168635-0008",
+      "reference": "NATURE A DIFFERENCE OF FIFTY YEARS HAD SET A PROFOUND GULF BETWEEN JEAN VALJEAN AND COSETTE DESTINY FILLED IN THIS GULF",
+      "hypothesis": " Nature, a difference of fifty years, had set a profound gulf between Jean Valjean and Cozette. Destiny filled in this gulf."
+    },
+    {
+      "id": "174-168635-0009",
+      "reference": "TO MEET WAS TO FIND EACH OTHER",
+      "hypothesis": " To meet was to find each other."
+    },
+    {
+      "id": "174-168635-0010",
+      "reference": "WHEN THESE TWO SOULS PERCEIVED EACH OTHER THEY RECOGNIZED EACH OTHER AS NECESSARY TO EACH OTHER AND EMBRACED EACH OTHER CLOSELY",
+      "hypothesis": " When these two souls perceived each other, they recognized each other as necessary to each other and embraced each other closely."
+    },
+    {
+      "id": "174-168635-0011",
+      "reference": "MOREOVER JEAN VALJEAN HAD CHOSEN HIS REFUGE WELL",
+      "hypothesis": " Moreover, Jean Valjean had chosen his refuge well."
+    },
+    {
+      "id": "174-168635-0012",
+      "reference": "HE HAD PAID HER SIX MONTHS IN ADVANCE AND HAD COMMISSIONED THE OLD WOMAN TO FURNISH THE CHAMBER AND DRESSING ROOM AS WE HAVE SEEN",
+      "hypothesis": " He had paid her six months in advance, and had commissioned the old woman to furnish the chamber and dressing room as we have seen."
+    },
+    {
+      "id": "174-168635-0013",
+      "reference": "WEEK FOLLOWED WEEK THESE TWO BEINGS LED A HAPPY LIFE IN THAT HOVEL",
+      "hypothesis": " Week followed week. These two beings led a happy life in that hovel."
+    },
+    {
+      "id": "174-168635-0014",
+      "reference": "COSETTE WAS NO LONGER IN RAGS SHE WAS IN MOURNING",
+      "hypothesis": " Cozzette was no longer in Rags. She was in mourning."
+    },
+    {
+      "id": "174-168635-0015",
+      "reference": "AND THEN HE TALKED OF HER MOTHER AND HE MADE HER PRAY",
+      "hypothesis": " And then he talked to her mother, and he made her pray."
+    },
+    {
+      "id": "174-168635-0016",
+      "reference": "HE PASSED HOURS IN WATCHING HER DRESSING AND UNDRESSING HER DOLL AND IN LISTENING TO HER PRATTLE",
+      "hypothesis": " He passed hours in watching her dressing and undressing her doll, and in listening to her prattle."
+    },
+    {
+      "id": "174-168635-0017",
+      "reference": "THE BEST OF US ARE NOT EXEMPT FROM EGOTISTICAL THOUGHTS",
+      "hypothesis": " The best of us are not exempt from egotistical thoughts."
+    },
+    {
+      "id": "174-168635-0018",
+      "reference": "HE HAD RETURNED TO PRISON THIS TIME FOR HAVING DONE RIGHT HE HAD QUAFFED FRESH BITTERNESS DISGUST AND LASSITUDE WERE OVERPOWERING HIM EVEN THE MEMORY OF THE BISHOP PROBABLY SUFFERED A TEMPORARY ECLIPSE THOUGH SURE TO REAPPEAR LATER ON LUMINOUS AND TRIUMPHANT BUT AFTER ALL THAT SACRED MEMORY WAS GROWING DIM",
+      "hypothesis": " He had returned to prison, this time for having done right. He had coffed fresh bitterness. Disgust and lassitude were overpowering him. Even the memory of the bishop probably suffered a temporary eclipse, though sure to reappear later on, luminous and triumphant. But, after all, that sacred memory was growing dim."
+    },
+    {
+      "id": "174-168635-0019",
+      "reference": "WHO KNOWS WHETHER JEAN VALJEAN HAD NOT BEEN ON THE EVE OF GROWING DISCOURAGED AND OF FALLING ONCE MORE",
+      "hypothesis": " Who knows whether Jean Valjean had not been on the eve of growing discouraged and of falling once more."
+    },
+    {
+      "id": "174-168635-0020",
+      "reference": "ALAS HE WALKED WITH NO LESS INDECISION THAN COSETTE",
+      "hypothesis": " Hellas, he walked with no less indecision than Cozette."
+    },
+    {
+      "id": "174-168635-0021",
+      "reference": "HE PROTECTED HER AND SHE STRENGTHENED HIM",
+      "hypothesis": " He protected her, and she strengthened him."
+    },
+    {
+      "id": "174-168635-0022",
+      "reference": "HE WAS THAT CHILD'S STAY AND SHE WAS HIS PROP",
+      "hypothesis": " He was that child's day, and she was his prop."
+    },
+    {
+      "id": "1988-147956-0000",
+      "reference": "FUCHS BROUGHT UP A SACK OF POTATOES AND A PIECE OF CURED PORK FROM THE CELLAR AND GRANDMOTHER PACKED SOME LOAVES OF SATURDAY'S BREAD A JAR OF BUTTER AND SEVERAL PUMPKIN PIES IN THE STRAW OF THE WAGON BOX",
+      "hypothesis": " Fuchs brought up a sack of potatoes and a piece of cured pork from the cellar, and grandmother packed some loaves of Saturday's bread, a jar of butter, and several pumpkin pies in the straw of the wagon-box."
+    },
+    {
+      "id": "1988-147956-0001",
+      "reference": "OCCASIONALLY ONE OF THE HORSES WOULD TEAR OFF WITH HIS TEETH A PLANT FULL OF BLOSSOMS AND WALK ALONG MUNCHING IT THE FLOWERS NODDING IN TIME TO HIS BITES AS HE ATE DOWN TOWARD THEM",
+      "hypothesis": " Occasionally, one of the horses would tear off, with his teeth, a plant full of blossoms, and walk along munching it, the flowers nodding in time to his bites as he ate down toward them."
+    },
+    {
+      "id": "1988-147956-0002",
+      "reference": "IT'S NO BETTER THAN A BADGER HOLE NO PROPER DUGOUT AT ALL",
+      "hypothesis": " It's no better than a badger hole. No proper dugout at all."
+    },
+    {
+      "id": "1988-147956-0003",
+      "reference": "NOW WHY IS THAT OTTO",
+      "hypothesis": " Now, why is that auto?"
+    },
+    {
+      "id": "1988-147956-0004",
+      "reference": "PRESENTLY AGAINST ONE OF THOSE BANKS I SAW A SORT OF SHED THATCHED WITH THE SAME WINE COLORED GRASS THAT GREW EVERYWHERE",
+      "hypothesis": " Presently, against one of those banks, I saw a sort of shed, thatched with the same wine-colored grass that grew everywhere."
+    },
+    {
+      "id": "1988-147956-0005",
+      "reference": "VERY GLAD VERY GLAD SHE EJACULATED",
+      "hypothesis": " Very glad, very glad,\" she ejaculated."
+    },
+    {
+      "id": "1988-147956-0006",
+      "reference": "YOU'LL GET FIXED UP COMFORTABLE AFTER WHILE MISSUS SHIMERDA MAKE GOOD HOUSE",
+      "hypothesis": " Go get fixed up comfortable after a while, Mrs. Shemirida. Make good house!"
+    },
+    {
+      "id": "1988-147956-0007",
+      "reference": "MY GRANDMOTHER ALWAYS SPOKE IN A VERY LOUD TONE TO FOREIGNERS AS IF THEY WERE DEAF",
+      "hypothesis": " My grandmother always spoke in a very loud tone to foreigners, as if they were deaf."
+    },
+    {
+      "id": "1988-147956-0008",
+      "reference": "SHE MADE MISSUS SHIMERDA UNDERSTAND THE FRIENDLY INTENTION OF OUR VISIT AND THE BOHEMIAN WOMAN HANDLED THE LOAVES OF BREAD AND EVEN SMELLED THEM AND EXAMINED THE PIES WITH LIVELY CURIOSITY EXCLAIMING MUCH GOOD MUCH THANK",
+      "hypothesis": " She made Mrs. Shimer to understand the friendly intention of our visit, and the Bohemian woman handled the loaves of bread, and even smelled them, and examined the pies with lively curiosity, exclaiming, much good, much thank!"
+    },
+    {
+      "id": "1988-147956-0009",
+      "reference": "THE FAMILY HAD BEEN LIVING ON CORNCAKES AND SORGHUM MOLASSES FOR THREE DAYS",
+      "hypothesis": " The family had been living on corn cakes and sorghum molasses for three days."
+    },
+    {
+      "id": "1988-147956-0010",
+      "reference": "I REMEMBERED WHAT THE CONDUCTOR HAD SAID ABOUT HER EYES",
+      "hypothesis": " I remembered what the conductor had said about her eyes."
+    },
+    {
+      "id": "1988-147956-0011",
+      "reference": "HER SKIN WAS BROWN TOO AND IN HER CHEEKS SHE HAD A GLOW OF RICH DARK COLOR",
+      "hypothesis": " Her skin was brown too, and in her cheeks she had a glow of rich dark color."
+    },
+    {
+      "id": "1988-147956-0012",
+      "reference": "EVEN FROM A DISTANCE ONE COULD SEE THAT THERE WAS SOMETHING STRANGE ABOUT THIS BOY",
+      "hypothesis": " Even from a distance, one could see that there was something strange about this boy."
+    },
+    {
+      "id": "1988-147956-0013",
+      "reference": "HE WAS BORN LIKE THAT THE OTHERS ARE SMART",
+      "hypothesis": " He was born like that. The others are smart."
+    },
+    {
+      "id": "1988-147956-0014",
+      "reference": "AMBROSCH HE MAKE GOOD FARMER",
+      "hypothesis": " Ambrose, you make good farmer."
+    },
+    {
+      "id": "1988-147956-0015",
+      "reference": "HE STRUCK AMBROSCH ON THE BACK AND THE BOY SMILED KNOWINGLY",
+      "hypothesis": " He struck Ambrose on the back, and the boy smiled knowingly."
+    },
+    {
+      "id": "1988-147956-0016",
+      "reference": "AT THAT MOMENT THE FATHER CAME OUT OF THE HOLE IN THE BANK",
+      "hypothesis": " At that moment the father came out of the hole in the bank."
+    },
+    {
+      "id": "1988-147956-0017",
+      "reference": "IT WAS SO LONG THAT IT BUSHED OUT BEHIND HIS EARS AND MADE HIM LOOK LIKE THE OLD PORTRAITS I REMEMBERED IN VIRGINIA",
+      "hypothesis": " It was so long that it bushed out behind his ears and made him look like the old portraits I remember in Virginia."
+    },
+    {
+      "id": "1988-147956-0018",
+      "reference": "I NOTICED HOW WHITE AND WELL SHAPED HIS OWN HANDS WERE",
+      "hypothesis": " I noticed how white and well-shaped his own hands were."
+    },
+    {
+      "id": "1988-147956-0019",
+      "reference": "WE STOOD PANTING ON THE EDGE OF THE RAVINE LOOKING DOWN AT THE TREES AND BUSHES THAT GREW BELOW US",
+      "hypothesis": " We stood panting on the edge of the ravine, looking down at the trees and bushes that grew below us."
+    },
+    {
+      "id": "1988-147956-0020",
+      "reference": "THE WIND WAS SO STRONG THAT I HAD TO HOLD MY HAT ON AND THE GIRLS SKIRTS WERE BLOWN OUT BEFORE THEM",
+      "hypothesis": " The wind was so strong that I had to hold my hat on and the girls' skirts were blown out before them."
+    },
+    {
+      "id": "1988-147956-0021",
+      "reference": "SHE LOOKED AT ME HER EYES FAIRLY BLAZING WITH THINGS SHE COULD NOT SAY",
+      "hypothesis": " She looked at me, her eyes fairly blazing with things she could not say."
+    },
+    {
+      "id": "1988-147956-0022",
+      "reference": "SHE POINTED INTO THE GOLD COTTONWOOD TREE BEHIND WHOSE TOP WE STOOD AND SAID AGAIN WHAT NAME",
+      "hypothesis": " She pointed into the gold cottonwood tree behind whose top we stood and said again, What name?"
+    },
+    {
+      "id": "1988-147956-0023",
+      "reference": "ANTONIA POINTED UP TO THE SKY AND QUESTIONED ME WITH HER GLANCE",
+      "hypothesis": " Antony pointed up to the sky and questioned me with her glance."
+    },
+    {
+      "id": "1988-147956-0024",
+      "reference": "SHE GOT UP ON HER KNEES AND WRUNG HER HANDS",
+      "hypothesis": " She got up on her knees and rung her hands."
+    },
+    {
+      "id": "1988-147956-0025",
+      "reference": "SHE WAS QUICK AND VERY EAGER",
+      "hypothesis": " She was quick and very eager."
+    },
+    {
+      "id": "1988-147956-0026",
+      "reference": "WE WERE SO DEEP IN THE GRASS THAT WE COULD SEE NOTHING BUT THE BLUE SKY OVER US AND THE GOLD TREE IN FRONT OF US",
+      "hypothesis": " We were so deep in the grass that we could see nothing but the blue sky over us and the gold tree in front of us."
+    },
+    {
+      "id": "1988-147956-0027",
+      "reference": "AFTER ANTONIA HAD SAID THE NEW WORDS OVER AND OVER SHE WANTED TO GIVE ME A LITTLE CHASED SILVER RING SHE WORE ON HER MIDDLE FINGER",
+      "hypothesis": " After Antenna had said the new words over and over, she wanted to give me a little chased silver ring that she wore on her middle finger."
+    },
+    {
+      "id": "1988-147956-0028",
+      "reference": "WHEN I CAME UP HE TOUCHED MY SHOULDER AND LOOKED SEARCHINGLY DOWN INTO MY FACE FOR SEVERAL SECONDS",
+      "hypothesis": " When I came up, he touched my shoulder and looked searchingly down into my face for several seconds."
+    },
+    {
+      "id": "1988-147956-0029",
+      "reference": "I BECAME SOMEWHAT EMBARRASSED FOR I WAS USED TO BEING TAKEN FOR GRANTED BY MY ELDERS",
+      "hypothesis": " I became somewhat embarrassed, for I was used to being taken for granted by my elders."
+    },
+    {
+      "id": "1988-24833-0000",
+      "reference": "THE TWO STRAY KITTENS GRADUALLY MAKE THEMSELVES AT HOME",
+      "hypothesis": " The two stray kittens gradually make themselves at home."
+    },
+    {
+      "id": "1988-24833-0001",
+      "reference": "SOMEHOW OR OTHER CAT HAS TAUGHT THEM THAT HE'S IN CHARGE HERE AND HE JUST CHASES THEM FOR FUN NOW AND AGAIN WHEN HE'S NOT BUSY SLEEPING",
+      "hypothesis": " Somehow or other, Cat has taught them that he is in charge here, and he just chases them for fun now and again when he's not busy sleeping."
+    },
+    {
+      "id": "1988-24833-0002",
+      "reference": "SHE DOESN'T PICK THEM UP BUT JUST HAVING THEM IN THE ROOM SURE DOESN'T GIVE HER ASTHMA",
+      "hypothesis": " She doesn't pick them up, but just having them in the room sure doesn't give her asthma."
+    },
+    {
+      "id": "1988-24833-0003",
+      "reference": "WHEN ARE YOU GETTING RID OF THESE CATS I'M NOT FIXING TO START AN ANNEX TO KATE'S CAT HOME",
+      "hypothesis": " When are you getting rid of these cats? I'm not fixing to start an annex to Kate's cat home."
+    },
+    {
+      "id": "1988-24833-0004",
+      "reference": "RIGHT AWAY WHEN I BRING HOME MY NEW PROGRAM HE SAYS HOW COME YOU'RE TAKING ONE LESS COURSE THIS HALF",
+      "hypothesis": " Right away, when I bring home my new program, he says, how come you're taking one less course this half?"
+    },
+    {
+      "id": "1988-24833-0005",
+      "reference": "I EXPLAIN THAT I'M TAKING MUSIC AND ALSO BIOLOGY ALGEBRA ENGLISH AND FRENCH MUSIC HE SNORTS",
+      "hypothesis": " I explained that I'm taking music and also biology, algebra, English, and French. Music! Peace, Norts."
+    },
+    {
+      "id": "1988-24833-0006",
+      "reference": "POP IT'S A COURSE",
+      "hypothesis": " Pop, it's a chorus."
+    },
+    {
+      "id": "1988-24833-0007",
+      "reference": "HE DOES AND FOR ONCE I WIN A ROUND I KEEP MUSIC FOR THIS SEMESTER",
+      "hypothesis": " He does. And for once I win a round. I keep music for this semester."
+    },
+    {
+      "id": "1988-24833-0008",
+      "reference": "I'LL BE LUCKY IF I HAVE TIME TO BREATHE",
+      "hypothesis": " I'll be lucky if I have time to breathe."
+    },
+    {
+      "id": "1988-24833-0009",
+      "reference": "SOMETIMES SCHOOLS DO LET KIDS TAKE A LOT OF SOFT COURSES AND THEN THEY'RE OUT ON A LIMB LATER HUH",
+      "hypothesis": " Sometimes schools do let kids take a lot of soft courses, and then they're out on a limb later. Huh."
+    },
+    {
+      "id": "1988-24833-0010",
+      "reference": "SO HE CARES HUH",
+      "hypothesis": " So, he cares. Huh."
+    },
+    {
+      "id": "1988-24833-0011",
+      "reference": "BESIDES SAYS TOM HALF THE REASON YOU AND YOUR FATHER ARE ALWAYS BICKERING IS THAT YOU'RE SO MUCH ALIKE ME LIKE HIM SURE",
+      "hypothesis": " Besides, says Tom, half the reason you and your father are always bickering is that you're so much alike. Me? Like him? Sure."
+    },
+    {
+      "id": "1988-24833-0012",
+      "reference": "AS LONG AS THERE'S A BONE ON THE FLOOR THE TWO OF YOU WORRY IT",
+      "hypothesis": " As long as there's a bone on the floor, the two of you worry it."
+    },
+    {
+      "id": "1988-24833-0013",
+      "reference": "I GET THE PILLOWS COMFORTABLY ARRANGED ON THE FLOOR WITH A BIG BOTTLE OF SODA AND A BAG OF POPCORN WITHIN EASY REACH",
+      "hypothesis": " I get the pillows comfortably arranged on the floor with a big bottle of soda and a bag of popcorn with an easy reach."
+    },
+    {
+      "id": "1988-24833-0014",
+      "reference": "POP GOES RIGHT ON TUNING HIS CHANNEL",
+      "hypothesis": " Pup goes right on tuning his channel."
+    },
+    {
+      "id": "1988-24833-0015",
+      "reference": "YOU'RE GETTING ALTOGETHER TOO UPSET ABOUT THESE PROGRAMS STOP IT AND BEHAVE YOURSELF",
+      "hypothesis": " You're getting altogether too upset about these programs. Stop it and behave yourself."
+    },
+    {
+      "id": "1988-24833-0016",
+      "reference": "IT'S YOUR FAULT MOP IT UP YOURSELF",
+      "hypothesis": " It's your fault, mop it up yourself."
+    },
+    {
+      "id": "1988-24833-0017",
+      "reference": "I HEAR THE T V GOING FOR A FEW MINUTES THEN POP TURNS IT OFF AND GOES IN THE KITCHEN TO TALK TO MOM",
+      "hypothesis": " I hear the TV going for a few minutes, then Pop turns it off and goes in the kitchen to talk to Mom."
+    },
+    {
+      "id": "1988-24833-0018",
+      "reference": "WELL I DON'T THINK YOU SHOULD TURN A GUY'S T V PROGRAM OFF IN THE MIDDLE WITHOUT EVEN FINDING OUT ABOUT IT",
+      "hypothesis": " Well, I don't think you should turn a guy's TV program off in the middle without even finding out about it."
+    },
+    {
+      "id": "1988-24833-0019",
+      "reference": "I LOOK AT MY WATCH IT'S A QUARTER TO ELEVEN",
+      "hypothesis": " I look at my watch. It's a quarter to eleven."
+    },
+    {
+      "id": "1988-24833-0020",
+      "reference": "I TURN OFF THE TELEVISION SET I'VE LOST TRACK OF WHAT'S HAPPENING AND IT DOESN'T SEEM TO BE THE GRANDFATHER WHO'S THE SPOOK AFTER ALL",
+      "hypothesis": " I turn off the television set. I've lost track of what's happening and it doesn't seem to be the grandfather who's a spook after all."
+    },
+    {
+      "id": "1988-24833-0021",
+      "reference": "IT'S THE FIRST TIME HILDA HAS BEEN TO OUR HOUSE AND TOM INTRODUCES HER AROUND",
+      "hypothesis": " It's the first time Hilda has been to our house and Tom introduces her around."
+    },
+    {
+      "id": "1988-24833-0022",
+      "reference": "I TOLD TOM WE SHOULDN'T COME SO LATE SAYS HILDA",
+      "hypothesis": " I told Tom we shouldn't come so late to Tilda."
+    },
+    {
+      "id": "1988-24833-0023",
+      "reference": "TOM SAYS THANKS AND LOOKS AT HILDA AND SHE BLUSHES REALLY",
+      "hypothesis": " Tom says thanks and looks at Hilda and she blushes. Really."
+    },
+    {
+      "id": "1988-24833-0024",
+      "reference": "TOM DRINKS A LITTLE MORE COFFEE AND THEN HE GOES ON THE TROUBLE IS I CAN'T GET MARRIED ON THIS FLOWER SHOP JOB",
+      "hypothesis": " Tom drinks a little more coffee and then he goes on. The trouble is, I can't get married on this flower shop job."
+    },
+    {
+      "id": "1988-24833-0025",
+      "reference": "YOU KNOW I'D GET DRAFTED IN A YEAR OR TWO ANYWAY",
+      "hypothesis": " You know, I'd get drafted in a year or two anyway."
+    },
+    {
+      "id": "1988-24833-0026",
+      "reference": "I'VE DECIDED TO ENLIST IN THE ARMY",
+      "hypothesis": " I've decided to enlist in the army."
+    },
+    {
+      "id": "1988-24833-0027",
+      "reference": "I'LL HAVE TO CHECK SOME MORE SAYS TOM",
+      "hypothesis": " I'll have to check some more,\" says Tom."
+    },
+    {
+      "id": "1988-24833-0028",
+      "reference": "HERE'S TO YOU A LONG HAPPY LIFE",
+      "hypothesis": " Here's to you, a long happy life."
+    },
+    {
+      "id": "1993-147964-0000",
+      "reference": "THEY SAT ABOUT THE HOUSE MOST OF THE DAY AS IF IT WERE SUNDAY GREASING THEIR BOOTS MENDING THEIR SUSPENDERS PLAITING WHIPLASHES",
+      "hypothesis": " They sat about the house most of the day, as if it were Sunday, greasing their boots, mending their suspenders, plating whiplashes."
+    },
+    {
+      "id": "1993-147964-0001",
+      "reference": "ANYWAY HE WOULD NEVER ALLOW ONE OF HIS HORSES TO BE PUT TO SUCH A STRAIN",
+      "hypothesis": " Anyway, he would never allow one of his horses to be put to such a strain."
+    },
+    {
+      "id": "1993-147964-0002",
+      "reference": "I HAD WANTED TO GET SOME PICTURE BOOKS FOR YULKA AND ANTONIA EVEN YULKA WAS ABLE TO READ A LITTLE NOW",
+      "hypothesis": " I had wanted to get some picture books for Yorca and Antonia. Even Yorca was able to read a little now."
+    },
+    {
+      "id": "1993-147964-0003",
+      "reference": "SHE CUT SQUARES OF COTTON CLOTH AND WE SEWED THEM TOGETHER INTO A BOOK",
+      "hypothesis": " She cut squares of cotton cloth and we sewed them together into a book."
+    },
+    {
+      "id": "1993-147964-0004",
+      "reference": "ON THE WHITE PAGES I GROUPED SUNDAY SCHOOL CARDS AND ADVERTISING CARDS WHICH I HAD BROUGHT FROM MY OLD COUNTRY",
+      "hypothesis": " On the white pages I grouped Sunday school cards and advertising cards which I had brought from my old country."
+    },
+    {
+      "id": "1993-147964-0005",
+      "reference": "WHEN HE MOUNTED HIS HORSE AT THE DOOR I SAW THAT HE HAD A HATCHET SLUNG TO HIS BELT AND HE GAVE GRANDMOTHER A MEANING LOOK WHICH TOLD ME HE WAS PLANNING A SURPRISE FOR ME",
+      "hypothesis": " When he mounted his horse at the door, I saw that he had a hatchet slung to his belt, and he gave grandmother a meaning look, which told me he was planning a surprise for me."
+    },
+    {
+      "id": "1993-147964-0006",
+      "reference": "I PUT ON MY CAP AND RAN OUT TO MEET JAKE",
+      "hypothesis": " I put on my cap and ran out to meet Jake."
+    },
+    {
+      "id": "1993-147964-0007",
+      "reference": "HE USED TO HELP MY FATHER CUT CHRISTMAS TREES FOR ME IN VIRGINIA AND HE HAD NOT FORGOTTEN HOW MUCH I LIKED THEM",
+      "hypothesis": " He used to help my father cut Christmas trees for me in Virginia, and he had not forgotten how much I liked them."
+    },
+    {
+      "id": "1993-147964-0008",
+      "reference": "BY THE TIME WE HAD PLACED THE COLD FRESH SMELLING LITTLE TREE IN A CORNER OF THE SITTING ROOM IT WAS ALREADY CHRISTMAS EVE",
+      "hypothesis": " By the time we had placed the cold, fresh-smelling little tree in a corner of the sitting-room, it was already Christmas Eve."
+    },
+    {
+      "id": "1993-147964-0009",
+      "reference": "FROM UNDER THE LINING HE NOW PRODUCED A COLLECTION OF BRILLIANTLY COLORED PAPER FIGURES SEVERAL INCHES HIGH AND STIFF ENOUGH TO STAND ALONE",
+      "hypothesis": " From under the lining, he now produced a collection of brilliantly colored paper figures, several inches high, and stiff enough to stand alone."
+    },
+    {
+      "id": "1993-147964-0010",
+      "reference": "I CAN SEE THEM NOW EXACTLY AS THEY LOOKED WORKING ABOUT THE TABLE IN THE LAMPLIGHT JAKE WITH HIS HEAVY FEATURES SO RUDELY MOULDED THAT HIS FACE SEEMED SOMEHOW UNFINISHED OTTO WITH HIS HALF EAR AND THE SAVAGE SCAR THAT MADE HIS UPPER LIP CURL SO FEROCIOUSLY UNDER HIS TWISTED MUSTACHE",
+      "hypothesis": " I can see them now, exactly as they looked, working about the table in the lamp-light. Jake, with his heavy features so rudely moulded that his face seemed somehow unfinished. Otto, with his half-ear and the savage scar that made his upper lip curl so ferociously under his twisted moustache."
+    },
+    {
+      "id": "2035-147960-0000",
+      "reference": "SHE WAS FOUR YEARS OLDER THAN I TO BE SURE AND HAD SEEN MORE OF THE WORLD BUT I WAS A BOY AND SHE WAS A GIRL AND I RESENTED HER PROTECTING MANNER",
+      "hypothesis": " She was four years older than I, to be sure, and had seen more of the world. But I was a boy and she was a girl, and I resented her protecting manner."
+    },
+    {
+      "id": "2035-147960-0001",
+      "reference": "THIS CHANGE CAME ABOUT FROM AN ADVENTURE WE HAD TOGETHER",
+      "hypothesis": " This change came about from an adventure we had together."
+    },
+    {
+      "id": "2035-147960-0002",
+      "reference": "ONE DAY WHEN I RODE OVER TO THE SHIMERDAS I FOUND ANTONIA STARTING OFF ON FOOT FOR RUSSIAN PETER'S HOUSE TO BORROW A SPADE AMBROSCH NEEDED",
+      "hypothesis": " One day when I rode over to the Shemeridas, I found Antinias starting off on foot for Russian Peters House to borrow a spade and brooch needed."
+    },
+    {
+      "id": "2035-147960-0003",
+      "reference": "THERE HAD BEEN ANOTHER BLACK FROST THE NIGHT BEFORE AND THE AIR WAS CLEAR AND HEADY AS WINE",
+      "hypothesis": " There had been another black frost the night before, and the air was clear and heady as wine."
+    },
+    {
+      "id": "2035-147960-0004",
+      "reference": "IT WAS ON ONE OF THESE GRAVEL BEDS THAT I MET MY ADVENTURE",
+      "hypothesis": " It was on one of these gravel beds that I met my adventure."
+    },
+    {
+      "id": "2035-147960-0005",
+      "reference": "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "hypothesis": " I whirled round and there on one of those dry gravel beds was the biggest snake I had ever seen."
+    },
+    {
+      "id": "2035-147960-0006",
+      "reference": "I KNOW I AM JUST AWFUL JIM I WAS SO SCARED",
+      "hypothesis": " I know I'm just awful, Jim. I was so scared."
+    },
+    {
+      "id": "2035-147960-0007",
+      "reference": "I NEVER KNOW YOU WAS SO BRAVE JIM SHE WENT ON COMFORTINGLY",
+      "hypothesis": " I never know you was so brave, Jim,\" she went uncomfortingly."
+    },
+    {
+      "id": "2035-147960-0008",
+      "reference": "A FAINT FETID SMELL CAME FROM HIM AND A THREAD OF GREEN LIQUID OOZED FROM HIS CRUSHED HEAD",
+      "hypothesis": " A faint, fetid smell came from him, and a thread of green liquid oozed from his crushed head."
+    },
+    {
+      "id": "2035-147960-0009",
+      "reference": "LOOK TONY THAT'S HIS POISON I SAID",
+      "hypothesis": " Look, Tony, that's his poison, I said."
+    },
+    {
+      "id": "2035-147960-0010",
+      "reference": "I EXPLAINED TO ANTONIA HOW THIS MEANT THAT HE WAS TWENTY FOUR YEARS OLD THAT HE MUST HAVE BEEN THERE WHEN WHITE MEN FIRST CAME LEFT ON FROM BUFFALO AND INDIAN TIMES",
+      "hypothesis": " I explained to Antony how this meant that he was 24 years old, that he must have been there when white men first came. Left on from Buffalo in Indian times."
+    },
+    {
+      "id": "2035-147960-0011",
+      "reference": "WE DECIDED THAT ANTONIA SHOULD RIDE DUDE HOME AND I WOULD WALK",
+      "hypothesis": " We decided that Antenna should ride Dude Home, and I would walk."
+    },
+    {
+      "id": "2035-147960-0012",
+      "reference": "I FOLLOWED WITH THE SPADE OVER MY SHOULDER DRAGGING MY SNAKE",
+      "hypothesis": " I followed with a spade over my shoulder, dragging my snake."
+    },
+    {
+      "id": "2035-147960-0013",
+      "reference": "OTTO FUCHS WAS THE FIRST ONE WE MET",
+      "hypothesis": " Otto Fuchs was the first one we met."
+    },
+    {
+      "id": "2035-147960-0014",
+      "reference": "HE COULD STAND RIGHT UP AND TALK TO YOU HE COULD DID HE FIGHT HARD",
+      "hypothesis": " You could stand right up and talk to you. He could. Did he fight hard?"
+    },
+    {
+      "id": "2035-147960-0015",
+      "reference": "OTTO WINKED AT ME",
+      "hypothesis": " Otto winked at me."
+    },
+    {
+      "id": "2035-147960-0016",
+      "reference": "A SNAKE OF HIS SIZE IN FIGHTING TRIM WOULD BE MORE THAN ANY BOY COULD HANDLE",
+      "hypothesis": " A snake of his size in fighting trim would be more than any boy could handle."
+    },
+    {
+      "id": "2035-147961-0000",
+      "reference": "PETER TOLD HIS TROUBLES TO MISTER SHIMERDA HE WAS UNABLE TO MEET A NOTE WHICH FELL DUE ON THE FIRST OF NOVEMBER HAD TO PAY AN EXORBITANT BONUS ON RENEWING IT AND TO GIVE A MORTGAGE ON HIS PIGS AND HORSES AND EVEN HIS MILK COW",
+      "hypothesis": " Peter told his troubles to Mr. Shimerda. He was unable to meet a note which fell due on the 1st of November, had to pay an exorbitant bonus on renewing it, and to give a mortgage on his pigs and horses and even his milk cow."
+    },
+    {
+      "id": "2035-147961-0001",
+      "reference": "PETER COULD GIVE NO VERY CLEAR ACCOUNT OF HIS TRANSACTIONS WITH CUTTER",
+      "hypothesis": " Peter could give no very clear account of his transactions with Cutter."
+    },
+    {
+      "id": "2035-147961-0002",
+      "reference": "SHE ASKED PETER TO WAIT A MOMENT AND WHEN SHE CAME BACK FROM THE KITCHEN SHE BROUGHT A BAG OF SANDWICHES AND DOUGHNUTS FOR US",
+      "hypothesis": " She asked Peter to wait a moment, and when she came back from the kitchen, she brought a bag of sandwiches and donuts for us."
+    },
+    {
+      "id": "2035-147961-0003",
+      "reference": "WE LAY STILL AND DID NOT TALK",
+      "hypothesis": " We lay still and did not talk."
+    },
+    {
+      "id": "2035-147961-0004",
+      "reference": "THE LITTLE HOUSE ON THE HILLSIDE WAS SO MUCH THE COLOR OF THE NIGHT THAT WE COULD NOT SEE IT AS WE CAME UP THE DRAW",
+      "hypothesis": " The little house on the hillside was so much the color of the night that we could not see it as we came up the draw."
+    },
+    {
+      "id": "2035-147961-0005",
+      "reference": "THEY MADE ME THINK OF DEFEATED ARMIES RETREATING OR OF GHOSTS WHO WERE TRYING DESPERATELY TO GET IN FOR SHELTER AND THEN WENT MOANING ON",
+      "hypothesis": " They made me think of defeated armies retreating, or of ghosts who were trying desperately to get in for shelter. And then went moaning on."
+    },
+    {
+      "id": "2035-147961-0006",
+      "reference": "I COULD NOT TAKE MY EYES OFF THE MAN IN THE BED",
+      "hypothesis": " I could not take my eyes off the man in the bed."
+    },
+    {
+      "id": "2035-147961-0007",
+      "reference": "THE SHARP SMELL OF SPIRITS WENT THROUGH THE ROOM",
+      "hypothesis": " The sharp smell of spirits went through the room."
+    },
+    {
+      "id": "2035-147961-0008",
+      "reference": "IT SEEMED TO ME THAT HE DESPISED HIM FOR BEING SO SIMPLE AND DOCILE",
+      "hypothesis": " It seemed to me that he despised him for being so simple and docile."
+    },
+    {
+      "id": "2035-147961-0009",
+      "reference": "THE SICK MAN RAGED AND SHOOK HIS FIST",
+      "hypothesis": " The sick man raged and shook his fist."
+    },
+    {
+      "id": "2035-147961-0010",
+      "reference": "HE SEEMED TO BE CURSING PEOPLE WHO HAD WRONGED HIM",
+      "hypothesis": " he seemed to be cursing people who had wronged him."
+    },
+    {
+      "id": "2035-147961-0011",
+      "reference": "QUICKLY IT WAS COVERED WITH BRIGHT RED SPOTS I THOUGHT I HAD NEVER SEEN ANY BLOOD SO BRIGHT",
+      "hypothesis": " Quickly, it was covered with bright red spots. I thought I had never seen any blood so bright."
+    },
+    {
+      "id": "2035-147961-0012",
+      "reference": "HE LAY PATIENTLY FIGHTING FOR BREATH LIKE A CHILD WITH CROUP",
+      "hypothesis": " He lay patiently fighting for breath like a child with croup."
+    },
+    {
+      "id": "2035-147961-0013",
+      "reference": "ANTONIA'S FATHER UNCOVERED ONE OF HIS LONG BONY LEGS AND RUBBED IT RHYTHMICALLY",
+      "hypothesis": " Antony his father uncovered one of his long bony legs and rubbed it rhythmically."
+    },
+    {
+      "id": "2035-147961-0014",
+      "reference": "FROM OUR BENCH WE COULD SEE WHAT A HOLLOW CASE HIS BODY WAS",
+      "hypothesis": " From our bench, we could see what a hollow case his body was."
+    },
+    {
+      "id": "2035-147961-0015",
+      "reference": "GRADUALLY RELIEF CAME TO ALL OF US",
+      "hypothesis": " Gradually, relief came to all of us."
+    }
+  ],
+  "oov": {
+    "worst_terms": [],
+    "best_terms": [],
+    "per_term_summary": []
+  },
+  "provenance": {
+    "schema_version": 1,
+    "created_at_utc": "2026-08-31T19:42:11.003864+00:00",
+    "git_commit": "1b6e43ad19ec0f6c9361a348cd68d6453fd44c2c",
+    "git_dirty": true,
+    "arguments": {
+      "eval_manifest": "data\\openslr31_pilot\\whisper_raw.parquet",
+      "domain_vocab": "configs\\financial_terms.txt",
+      "model_id": "openai/whisper-small",
+      "output": "experiments\\results\\openslr31_pilot\\base_raw.json",
+      "batch_size": 8,
+      "device": "cuda",
+      "seed": 11,
+      "bootstrap_resamples": 10000
+    },
+    "seed": 11,
+    "inputs": {
+      "data\\openslr31_pilot\\whisper_raw.parquet": "0402851224a556d9f4b951caaba54fb7e5007d04d1c0814453d2d8a870af67d2",
+      "configs\\financial_terms.txt": "27678f147dbbf03e76e27cdc8a94afb03436b6f51320d92c7747dd0a5b0cc3ba"
+    },
+    "environment": {
+      "python": "3.11.9",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "torch": "2.11.0+cu128",
+      "cuda_available": true,
+      "cuda_version": "12.8",
+      "device": "NVIDIA GeForce RTX 3070",
+      "packages": {
+        "torch": "2.11.0+cu128",
+        "transformers": "4.57.6",
+        "peft": "0.20.0",
+        "datasets": "4.8.5",
+        "jiwer": "4.0.0",
+        "librosa": "0.11.0",
+        "numpy": "2.4.6",
+        "pandas": "3.0.5"
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "acquisition_errors": [],
+  "artifacts": {
+    "curation_report": "data/openslr31_pilot/curated/curation_report.json",
+    "filtered_manifest": "data/openslr31_pilot/curated/filtered_manifest.parquet",
+    "raw_manifest": "data/openslr31_pilot/raw_manifest.parquet"
+  },
+  "diversity_after": {
+    "accent_distribution": {},
+    "accent_entropy": NaN,
+    "age_distribution": {},
+    "diversity_scores": {
+      "overall": 0.9346113984178847,
+      "speaker_balance": 0.9346113984178847
+    },
+    "domain_coverage": {
+      "commands_pct": 3.9408866995073892,
+      "phrases_pct": 51.231527093596064,
+      "read_speech_pct": 44.827586206896555
+    },
+    "duration_stats": {
+      "mean_sec": 5.905862684729064,
+      "median_sec": 4.93,
+      "p5_sec": 2.4655,
+      "p95_sec": 12.640499999999971,
+      "std_sec": 3.105266969628083,
+      "total_hours": 0.33302503472222217
+    },
+    "gender_distribution": {},
+    "locale_distribution": {
+      "count": {
+        "en": 203
+      },
+      "pct": {
+        "en": 100.0
+      }
+    },
+    "n_samples": 203,
+    "n_speakers": 6,
+    "sentence_length_stats": {
+      "mean": 16.591133004926107,
+      "median": 15.0,
+      "p5": 6.0,
+      "p95": 34.89999999999998,
+      "std": 8.619303697787737
+    },
+    "speaker_imbalance_ratio": 1.4054053674214766,
+    "vocabulary_size": 1165
+  },
+  "diversity_before": {
+    "accent_distribution": {},
+    "accent_entropy": NaN,
+    "age_distribution": {},
+    "diversity_scores": {
+      "overall": 0.9239848435033956,
+      "speaker_balance": 0.9239848435033956
+    },
+    "domain_coverage": {
+      "commands_pct": 7.199999999999999,
+      "phrases_pct": 54.400000000000006,
+      "read_speech_pct": 38.4
+    },
+    "duration_stats": {
+      "mean_sec": 5.5755602500000006,
+      "median_sec": 4.7075,
+      "p5_sec": 2.33975,
+      "p95_sec": 11.319749999999994,
+      "std_sec": 3.3081691683897905,
+      "total_hours": 0.3871916840277778
+    },
+    "gender_distribution": {},
+    "locale_distribution": {
+      "count": {
+        "en": 250
+      },
+      "pct": {
+        "en": 100.0
+      }
+    },
+    "n_samples": 250,
+    "n_speakers": 6,
+    "sentence_length_stats": {
+      "mean": 15.24,
+      "median": 13.0,
+      "p5": 5.0,
+      "p95": 33.54999999999998,
+      "std": 8.910442409653012
+    },
+    "speaker_imbalance_ratio": 1.4505494186692436,
+    "vocabulary_size": 1259
+  },
+  "funnel": {
+    "archive_endpoints_attempted": 0,
+    "archive_reused": 1,
+    "archives_acquired": 1,
+    "archives_downloaded_this_run": 0,
+    "candidate_archives_found": 2,
+    "candidate_audio_members": 1089,
+    "clips_extracted": 250,
+    "clips_passing_quality": 203,
+    "clips_retained": 203,
+    "exact_duplicates_removed": 0,
+    "near_duplicate_candidates": 192,
+    "pages_crawled": 1
+  },
+  "generated_at_utc": "2026-08-31T19:50:06.776801+00:00",
+  "policy": {
+    "max_clips": 250,
+    "max_download_bytes": 600000000,
+    "min_delay_sec": 5.0,
+    "robots": {
+      "https://www.openslr.org": {
+        "effective_delay_sec": 5.0,
+        "sha256": "067c8edb31d8c2a610e95319354f5b192ca762f148318672d7a09d4087bb7677",
+        "text": "# robots.txt generated at http://www.mcanerin.com\nUser-agent: *\nDisallow: \nCrawl-delay: 5\nDisallow: /cgi-bin/\n",
+        "url": "https://www.openslr.org/robots.txt"
+      }
+    }
+  },
+  "schema_version": 1,
+  "source": {
+    "archive_bytes": 126046265,
+    "archive_sha256": "176ec501490eced2d6c1f89f4f0ddc7dfe799e649e5322f8ba49fe3ff50c8012",
+    "archive_url": "https://www.openslr.org/resources/31/dev-clean-2.tar.gz",
+    "identifier": "SLR31",
+    "license": "CC BY 4.0",
+    "page_url": "https://www.openslr.org/31/"
+  }
+}

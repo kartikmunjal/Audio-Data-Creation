@@ -1,0 +1,71 @@
+{
+  "adapted_minus_base": {
+    "all": {
+      "ci_high": 0.013191306932044995,
+      "ci_low": 0.0019015412036760956,
+      "estimate": 0.007349081364829396,
+      "n_resamples": 10000
+    },
+    "retained": {
+      "ci_high": 0.014334965158925813,
+      "ci_low": 0.002282790290546035,
+      "estimate": 0.008016627078384799,
+      "n_resamples": 10000
+    }
+  },
+  "base": {
+    "all": {
+      "ci_high": 0.048858704995438255,
+      "ci_low": 0.03258856655272706,
+      "estimate": 0.04041994750656168,
+      "n_resamples": 10000
+    },
+    "retained": {
+      "ci_high": 0.05004495055439017,
+      "ci_low": 0.03253922138291691,
+      "estimate": 0.040973871733966744,
+      "n_resamples": 10000
+    },
+    "retained_minus_all": {
+      "ci_high": 0.0029530492476895934,
+      "ci_low": -0.0020146579555641976,
+      "estimate": 0.0005539242274050643,
+      "n_resamples": 10000
+    }
+  },
+  "domain_slice": {
+    "n": 0,
+    "reason": "no financial vocabulary terms occur in SLR31 pilot references"
+  },
+  "financial_adapter_seed11": {
+    "all": {
+      "ci_high": 0.05765146211812336,
+      "ci_low": 0.03859475177919574,
+      "estimate": 0.047769028871391075,
+      "n_resamples": 10000
+    },
+    "retained": {
+      "ci_high": 0.05942294957125021,
+      "ci_low": 0.03926086616500141,
+      "estimate": 0.04899049881235154,
+      "n_resamples": 10000
+    },
+    "retained_minus_all": {
+      "ci_high": 0.003967899679503863,
+      "ci_low": -0.0015208362468825847,
+      "estimate": 0.0012214699409604651,
+      "n_resamples": 10000
+    }
+  },
+  "inputs": {
+    "adapted": "experiments/results/openslr31_pilot/financial_seed11_raw.json",
+    "base": "experiments/results/openslr31_pilot/base_raw.json",
+    "filtered_manifest": "data/openslr31_pilot/curated/filtered_manifest.parquet"
+  },
+  "n_all": 250,
+  "n_retained": 203,
+  "n_trials": 1,
+  "schema_version": 1,
+  "scope": "descriptive frozen-model selection audit; not a training-effect estimate",
+  "seed": 11
+}

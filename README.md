@@ -37,6 +37,26 @@ conditions × five seeds), their run-provenance records, the fixed manifests,
 and both machine-readable JSON and rendered Markdown summaries. Large model
 weights and source audio remain excluded from Git.
 
+The locked [open-corpus acquisition pilot](CRAWL_RESEARCH_PLAN.md) adds a
+production-minded crawler stage using OpenSLR SLR31 Mini LibriSpeech. The
+[generated data card](experiments/results/openslr31_pilot/DATA_CARD.md) records
+the live robots policy, source-page and archive hashes, CC BY 4.0 attribution,
+and the full funnel. From 1 crawled source page it found 2 unique archives,
+acquired the preregistered 126 MB development archive, deterministically
+inspected 250 of its 1,089 aligned clips, passed 203 through the unchanged
+quality policy (81.2%), removed 0 exact duplicates, and retained 203. The 192
+MFCC-LSH candidates were not removed because the repository's labeled benchmark
+does not justify automatic near-duplicate deletion.
+
+The paired [frozen-ASR audit](experiments/results/openslr31_pilot/ASR_SELECTION_AUDIT.md)
+finds essentially neutral selection effects: retained-minus-all WER is +0.06
+points (95% clip-bootstrap CI -0.20 to +0.30) for base Whisper-small and +0.12
+points (-0.15 to +0.40) for the seed-11 financial adapter (`N_trials=1`). On
+all 250 clips the adapter regresses by +0.73 points (+0.19 to +1.32) relative
+to base. SLR31 contains none of the configured financial terms, so domain WER
+is undefined and common WER equals overall WER. This is a descriptive
+selection/robustness audit, not evidence about retraining on crawled data.
+
 ## Pipeline
 
 ```text
@@ -72,6 +92,20 @@ python scripts/run_pipeline.py \
   --manifest data/raw/manifest.parquet \
   --output_dir outputs
 ```
+
+Run the bounded, license-gated acquisition pilot (static HTML only; no browser
+automation) with:
+
+```bash
+python scripts/crawl_openslr.py
+```
+
+It refuses a source-page identity/license mismatch, checks `robots.txt` on
+every host, honors the greater of the declared crawl delay or five seconds,
+uses atomic bounded downloads with official-mirror failover, safely extracts
+tar members, and emits the existing Parquet manifest contract. Raw audio and
+archives are ignored by Git; compact reports and per-clip ASR predictions are
+the reviewable evidence.
 
 Primary outputs:
 
@@ -121,6 +155,17 @@ predictions, using the adjacent Whisper repository for the shared WER analyzer:
 python -m pip install -e ../whisper-domain-adaptation
 python scripts/summarize_downstream_study.py \
   --whisper-root ../whisper-domain-adaptation
+```
+
+Regenerate the crawler selection audit from its committed GPU predictions:
+
+```bash
+python scripts/summarize_crawl_asr.py \
+  --base experiments/results/openslr31_pilot/base_raw.json \
+  --adapted experiments/results/openslr31_pilot/financial_seed11_raw.json \
+  --filtered-manifest data/openslr31_pilot/curated/filtered_manifest.parquet \
+  --output experiments/results/openslr31_pilot/asr_selection_audit.json \
+  --markdown experiments/results/openslr31_pilot/ASR_SELECTION_AUDIT.md
 ```
 
 ## License

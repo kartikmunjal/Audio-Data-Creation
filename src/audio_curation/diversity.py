@@ -107,25 +107,31 @@ class DiversityAnalyzer:
         return float(counts.max() / (counts.median() + 1e-6))
 
     # ------------------------------------------------------------------
-    # Accent / locale
+    # Accent / locale (kept separate: language locale is not an accent label)
     # ------------------------------------------------------------------
 
     def accent_distribution(self) -> pd.DataFrame:
-        """Distribution over accent labels (Common Voice uses locale codes)."""
-        col = "accent" if "accent" in self.df.columns else "locale" if "locale" in self.df.columns else None
-        if col is None:
+        """Distribution over observed accent labels only."""
+        if "accent" not in self.df.columns:
             return pd.DataFrame()
-        counts = self.df[col].value_counts(dropna=False).rename("count")
+        counts = self.df["accent"].value_counts(dropna=False).rename("count")
         pct = (counts / counts.sum() * 100).round(2).rename("pct")
         return pd.concat([counts, pct], axis=1)
 
     def accent_entropy(self) -> float:
         """Normalized Shannon entropy of accent distribution (higher = more diverse)."""
-        col = "accent" if "accent" in self.df.columns else "locale" if "locale" in self.df.columns else None
-        if col is None:
+        if "accent" not in self.df.columns:
             return float("nan")
-        counts = self.df[col].value_counts().values
+        counts = self.df["accent"].value_counts().values
         return _normalized_entropy(counts)
+
+    def locale_distribution(self) -> pd.DataFrame:
+        """Distribution over language/region locale labels, not accents."""
+        if "locale" not in self.df.columns:
+            return pd.DataFrame()
+        counts = self.df["locale"].value_counts(dropna=False).rename("count")
+        pct = (counts / counts.sum() * 100).round(2).rename("pct")
+        return pd.concat([counts, pct], axis=1)
 
     # ------------------------------------------------------------------
     # Linguistic / domain
@@ -207,9 +213,8 @@ class DiversityAnalyzer:
             counts = self.df["age"].value_counts().values
             scores["age"] = _normalized_entropy(counts)
 
-        accent_col = "accent" if "accent" in self.df.columns else "locale" if "locale" in self.df.columns else None
-        if accent_col:
-            counts = self.df[accent_col].value_counts().values
+        if "accent" in self.df.columns:
+            counts = self.df["accent"].value_counts().values
             scores["accent"] = _normalized_entropy(counts)
 
         if "speaker_id" in self.df.columns:
@@ -236,6 +241,7 @@ class DiversityAnalyzer:
             "age_distribution": self.age_distribution().to_dict() if not self.age_distribution().empty else {},
             "accent_distribution": self.accent_distribution().head(20).to_dict() if not self.accent_distribution().empty else {},
             "accent_entropy": self.accent_entropy(),
+            "locale_distribution": self.locale_distribution().head(20).to_dict() if not self.locale_distribution().empty else {},
             "speaker_imbalance_ratio": self.speaker_imbalance_ratio(),
             "sentence_length_stats": self.sentence_length_stats(),
             "vocabulary_size": self.vocabulary_size(),
