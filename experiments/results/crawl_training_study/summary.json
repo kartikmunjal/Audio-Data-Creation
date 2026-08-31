@@ -1,0 +1,83 @@
+{
+  "comparisons": {
+    "earnings21": {
+      "common_terms": {
+        "augmented_mean": 0.21703999999999998,
+        "augmented_minus_control": {
+          "ci_high": -0.0031799999999999997,
+          "ci_low": -0.009539999999999998,
+          "estimate": -0.006359999999999999,
+          "n_resamples": 10000,
+          "n_trials": 5
+        },
+        "control_mean": 0.2234
+      },
+      "domain_terms": {
+        "augmented_mean": 0.10002,
+        "augmented_minus_control": {
+          "ci_high": 0.002779999999999999,
+          "ci_low": -0.014900000000000002,
+          "estimate": -0.0064,
+          "n_resamples": 10000,
+          "n_trials": 5
+        },
+        "control_mean": 0.10642
+      },
+      "overall": {
+        "augmented_mean": 0.1083,
+        "augmented_minus_control": {
+          "ci_high": 0.0021000000000000046,
+          "ci_low": -0.014300000000000002,
+          "estimate": -0.0064,
+          "n_resamples": 10000,
+          "n_trials": 5
+        },
+        "control_mean": 0.1147
+      }
+    },
+    "openslr31": {
+      "common_terms": {
+        "augmented_mean": 0.055959999999999996,
+        "augmented_minus_control": {
+          "ci_high": 0.014580000000000004,
+          "ci_low": 0.00878,
+          "estimate": 0.011680000000000001,
+          "n_resamples": 10000,
+          "n_trials": 5
+        },
+        "control_mean": 0.04428
+      },
+      "domain_terms": {
+        "augmented_mean": null,
+        "augmented_minus_control": {
+          "ci_high": null,
+          "ci_low": null,
+          "estimate": null,
+          "n_resamples": 10000,
+          "n_trials": 0
+        },
+        "control_mean": null
+      },
+      "overall": {
+        "augmented_mean": 0.055959999999999996,
+        "augmented_minus_control": {
+          "ci_high": 0.014580000000000004,
+          "ci_low": 0.00878,
+          "estimate": 0.011680000000000001,
+          "n_resamples": 10000,
+          "n_trials": 5
+        },
+        "control_mean": 0.04428
+      }
+    }
+  },
+  "n_trials": 5,
+  "schema_version": 1,
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ]
+}

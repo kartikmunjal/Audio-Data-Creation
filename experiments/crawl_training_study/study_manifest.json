@@ -1,0 +1,30 @@
+{
+  "augmented_crawler_rows": 147,
+  "augmented_financial_rows": 147,
+  "augmented_rows": 294,
+  "control_rows": 294,
+  "crawler_test_rows": 40,
+  "matched_size": true,
+  "output_hashes": {
+    "augmented_50pct_crawler.parquet": "f5a979178b2a7f359035bab4d445de247c092ae71e65a6c1b929cc703d9edc0a",
+    "control_financial.parquet": "415eedab115230e11a3441d222646ca350c30a4225685849d1e9c9cd3fed9755",
+    "openslr31_speaker_disjoint_test.parquet": "e5ee2158dfe59c5869921074534659ec6472af28a61b15cda25b9540d6c1db17"
+  },
+  "schema_version": 1,
+  "selection_seed": 20260831,
+  "source_hashes": {
+    "crawler_manifest": "1334107b487fe44f745e1de3903c96ac61d3be4960e9c2450340a14a92685b6c",
+    "financial_train": "415eedab115230e11a3441d222646ca350c30a4225685849d1e9c9cd3fed9755"
+  },
+  "speaker_disjoint": true,
+  "test_speakers": [
+    "1993",
+    "2035"
+  ],
+  "train_speakers": [
+    "1272",
+    "1462",
+    "174",
+    "1988"
+  ]
+}

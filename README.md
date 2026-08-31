@@ -57,6 +57,21 @@ to base. SLR31 contains none of the configured financial terms, so domain WER
 is undefined and common WER equals overall WER. This is a descriptive
 selection/robustness audit, not evidence about retraining on crawled data.
 
+That open question is now addressed by a separate, prospectively locked
+[five-seed training study](CRAWL_TRAINING_PLAN.md). The control retains all 294
+financial examples; the matched-size intervention replaces half with 147
+quality-retained SLR31 clips from four training speakers and evaluates on two
+untouched SLR31 speakers plus real Earnings-21. The generated
+[training report](experiments/results/crawl_training_study/REPORT.md) rejects
+the beneficial claim: held-out SLR31 WER worsens from 4.43% to 5.60%, a paired
++1.17-point change (95% seed-bootstrap CI +0.88 to +1.46; `N_trials=5`). The
+regression occurs in all five seeds. Earnings-21 moves from 11.47% to 10.83%
+(-0.64 points, -1.43 to +0.21), which is inconclusive overall; its common slice
+improves by -0.64 points (-0.95 to -0.32), while its domain interval crosses
+zero. A plausible explanation is specialization to the four crawler training
+speakers or read-speech styles rather than speaker-general robustness, but the
+study did not preregister a mechanism test, so that remains an inference.
+
 ## Pipeline
 
 ```text
@@ -166,6 +181,13 @@ python scripts/summarize_crawl_asr.py \
   --filtered-manifest data/openslr31_pilot/curated/filtered_manifest.parquet \
   --output experiments/results/openslr31_pilot/asr_selection_audit.json \
   --markdown experiments/results/openslr31_pilot/ASR_SELECTION_AUDIT.md
+```
+
+Regenerate the five-seed crawler-training table from all 20 committed
+model/corpus prediction reports:
+
+```bash
+python scripts/summarize_crawl_training_study.py
 ```
 
 ## License
