@@ -119,7 +119,26 @@ def main() -> None:
     candidates = scored[development & learned].copy()
     if len(financial) != 147 or len(candidates) < 147:
         raise RuntimeError(f"locked arm unavailable: financial={len(financial)}, learned_pass={len(candidates)}")
-    selected = candidates.sample(n=147, random_state=SEED).copy()
+    heuristic_crawler = heuristic_arm[heuristic_arm.source_arm == "openslr31"].copy()
+    selected_ids = set(heuristic_crawler.id.astype(str))
+    learned_pass_ids = set(scored.loc[development & learned, "id"].astype(str))
+    learned_only = sorted(learned_pass_ids - set(scored.loc[development & y, "id"].astype(str)))
+    selected_false_negatives = sorted(selected_ids - learned_pass_ids)
+    selected_ids -= set(selected_false_negatives)
+    selected_ids |= set(learned_only)
+    def stable_key(value: str) -> str:
+        return hashlib.sha256(value.encode()).hexdigest()
+    while len(selected_ids) > 147:
+        removable = sorted(selected_ids - set(learned_only), key=stable_key, reverse=True)
+        selected_ids.remove(removable[0])
+    while len(selected_ids) < 147:
+        available = sorted(learned_pass_ids - selected_ids, key=stable_key)
+        if not available:
+            raise RuntimeError("no learned-pass replacement available")
+        selected_ids.add(available[0])
+    selected = scored[scored.id.astype(str).isin(selected_ids)].copy()
+    if len(selected) != 147 or not selected.learned_pass.all():
+        raise RuntimeError("paired decision-only arm invariant failed")
     selected["source_arm"] = "openslr31_learned_filter"
     learned_arm = pd.concat([financial, selected], ignore_index=True, sort=False)
     learned_arm = learned_arm.sample(frac=1, random_state=SEED).reset_index(drop=True)
@@ -150,6 +169,9 @@ def main() -> None:
         "ledger_human_status": "pending",
         "top_feature_importances": [{"feature": key, "importance": float(value)} for key, value in importance[:15]],
         "learned_pass_development": int((development & learned).sum()),
+        "decision_required_learned_only_ids": learned_only,
+        "decision_required_selected_false_negative_ids": selected_false_negatives,
+        "crawler_arm_overlap_with_heuristic": len(selected_ids & set(heuristic_crawler.id.astype(str))),
         "downstream_arm_rows": len(learned_arm),
         "input_hashes": {"manifest": sha256(source), "heuristic_arm": sha256(Path(args.heuristic_arm))},
         "output_hashes": {"scored_manifest": sha256(scored_path), "learned_filter_arm": sha256(arm_path)},

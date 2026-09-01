@@ -55,3 +55,17 @@ The learned filter earns replacement consideration only if its SLR31 overall CI
 is entirely below zero and its Earnings-21 upper bound is at most +1.0 point.
 Otherwise the heuristic remains the production default. No threshold, feature,
 speaker split, mixture, seed, or claim gate changes after results are observed.
+
+## Prospective execution amendment
+
+Recorded after classifier evaluation but before any learned-filter ASR training
+or result. The classifier produced one disagreement, but independently sampling
+147 pass clips caused a 32-clip arm difference unrelated to that disagreement.
+To isolate the filter decision, the learned arm now starts from the fixed
+heuristic arm and applies only decision-required swaps: each learned-only clip
+is inserted and an equal number of heuristic-selected clips is removed by
+descending SHA-256 of clip ID; any heuristic-only selected clip is removed and
+replaced by the lowest-SHA-256 shared learned-pass clip not already selected.
+The financial rows, arm size, seeds, recipe, evaluation, and claim gate are
+unchanged. The amendment was motivated by causal identifiability, not downstream
+performance, which remained unseen.
