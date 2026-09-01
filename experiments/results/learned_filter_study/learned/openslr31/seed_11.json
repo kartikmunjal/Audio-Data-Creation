@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "model": "openai/whisper-small",
+  "adapter_path": "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation-learned-filter\\checkpoints\\learned_filter_study\\seed_11\\adapter",
+  "eval_manifest": "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation-learned-filter\\experiments\\crawl_training_study\\openslr31_speaker_disjoint_test.parquet",
+  "n_samples": 40,
+  "n_trials": 1,
+  "long_form": {
+    "chunk_length_seconds": 30.0,
+    "stride_seconds": 5.0,
+    "no_30_second_truncation": true
+  },
+  "wer": {
+    "overall": 0.0464,
+    "domain_terms": NaN,
+    "common_terms": 0.0464,
+    "n_domain_utterances": 0,
+    "n_common_utterances": 40
+  },
+  "uncertainty": {
+    "overall": {
+      "estimate": 0.046419,
+      "ci_low": 0.023935,
+      "ci_high": 0.07422,
+      "n_resamples": 10000
+    },
+    "domain_terms": {
+      "estimate": NaN,
+      "ci_low": NaN,
+      "ci_high": NaN,
+      "n_resamples": 10000
+    },
+    "common_terms": {
+      "estimate": 0.046419,
+      "ci_low": 0.023935,
+      "ci_high": 0.07422,
+      "n_resamples": 10000
+    }
+  },
+  "predictions": [
+    {
+      "id": "1993-147964-0000",
+      "reference": "THEY SAT ABOUT THE HOUSE MOST OF THE DAY AS IF IT WERE SUNDAY GREASING THEIR BOOTS MENDING THEIR SUSPENDERS PLAITING WHIPLASHES",
+      "hypothesis": " They said about the house most of the day, as if it were Sunday, greasing their boots, mending their suspenders, plating whiplashes."
+    },
+    {
+      "id": "1993-147964-0001",
+      "reference": "ANYWAY HE WOULD NEVER ALLOW ONE OF HIS HORSES TO BE PUT TO SUCH A STRAIN",
+      "hypothesis": " Anyway, he would never allow one of his horses to be put to such a strain."
+    },
+    {
+      "id": "1993-147964-0002",
+      "reference": "I HAD WANTED TO GET SOME PICTURE BOOKS FOR YULKA AND ANTONIA EVEN YULKA WAS ABLE TO READ A LITTLE NOW",
+      "hypothesis": " I had wanted to get some picture books for Yolka and Antonia. Even Yolka was able to read a little now."
+    },
+    {
+      "id": "1993-147964-0003",
+      "reference": "SHE CUT SQUARES OF COTTON CLOTH AND WE SEWED THEM TOGETHER INTO A BOOK",
+      "hypothesis": " She cut squares of cotton cloth and we sewed them together into a book."
+    },
+    {
+      "id": "1993-147964-0004",
+      "reference": "ON THE WHITE PAGES I GROUPED SUNDAY SCHOOL CARDS AND ADVERTISING CARDS WHICH I HAD BROUGHT FROM MY OLD COUNTRY",
+      "hypothesis": " On the white pages I grouped Sunday school cards and advertising cards which I had brought from my old country."
+    },
+    {
+      "id": "1993-147964-0005",
+      "reference": "WHEN HE MOUNTED HIS HORSE AT THE DOOR I SAW THAT HE HAD A HATCHET SLUNG TO HIS BELT AND HE GAVE GRANDMOTHER A MEANING LOOK WHICH TOLD ME HE WAS PLANNING A SURPRISE FOR ME",
+      "hypothesis": " When he mounted his horse at the door, I saw that he had a hatchet slung to his belt, and he gave grandmother a meaning look, which told me he was planning a surprise for me."
+    },
+    {
+      "id": "1993-147964-0006",
+      "reference": "I PUT ON MY CAP AND RAN OUT TO MEET JAKE",
+      "hypothesis": " I put on my cap and ran out to meet Jake."
+    },
+    {
+      "id": "1993-147964-0007",
+      "reference": "HE USED TO HELP MY FATHER CUT CHRISTMAS TREES FOR ME IN VIRGINIA AND HE HAD NOT FORGOTTEN HOW MUCH I LIKED THEM",
+      "hypothesis": " He used to help my father cut Christmas trees for me in Virginia, and he had not forgotten how much I liked them."
+    },
+    {
+      "id": "1993-147964-0008",
+      "reference": "BY THE TIME WE HAD PLACED THE COLD FRESH SMELLING LITTLE TREE IN A CORNER OF THE SITTING ROOM IT WAS ALREADY CHRISTMAS EVE",
+      "hypothesis": " By the time we had placed the cold, fresh-smelling little tree in a corner of the sitting room, it was already Christmas Eve."
+    },
+    {
+      "id": "1993-147964-0009",
+      "reference": "FROM UNDER THE LINING HE NOW PRODUCED A COLLECTION OF BRILLIANTLY COLORED PAPER FIGURES SEVERAL INCHES HIGH AND STIFF ENOUGH TO STAND ALONE",
+      "hypothesis": " From under the lining he now produced a collection of brilliantly colored paper figures several inches high and stiff enough to stand alone."
+    },
+    {
+      "id": "1993-147964-0010",
+      "reference": "I CAN SEE THEM NOW EXACTLY AS THEY LOOKED WORKING ABOUT THE TABLE IN THE LAMPLIGHT JAKE WITH HIS HEAVY FEATURES SO RUDELY MOULDED THAT HIS FACE SEEMED SOMEHOW UNFINISHED OTTO WITH HIS HALF EAR AND THE SAVAGE SCAR THAT MADE HIS UPPER LIP CURL SO FEROCIOUSLY UNDER HIS TWISTED MUSTACHE",
+      "hypothesis": " I can see them now, exactly as they looked, working about the table in the lamplight. Jake, with his heavy features so rudely molded that his face seemed somehow unfinished. Otto, with his half-ear and the savage scar that made his upper lip curl so ferociously under his twisted mustache."
+    },
+    {
+      "id": "2035-147960-0000",
+      "reference": "SHE WAS FOUR YEARS OLDER THAN I TO BE SURE AND HAD SEEN MORE OF THE WORLD BUT I WAS A BOY AND SHE WAS A GIRL AND I RESENTED HER PROTECTING MANNER",
+      "hypothesis": " She was four years older than I to be sure and had seen more of the world. But I was a boy and she was a girl and I resented her protecting manner."
+    },
+    {
+      "id": "2035-147960-0001",
+      "reference": "THIS CHANGE CAME ABOUT FROM AN ADVENTURE WE HAD TOGETHER",
+      "hypothesis": " This change came about from an adventure we had together."
+    },
+    {
+      "id": "2035-147960-0002",
+      "reference": "ONE DAY WHEN I RODE OVER TO THE SHIMERDAS I FOUND ANTONIA STARTING OFF ON FOOT FOR RUSSIAN PETER'S HOUSE TO BORROW A SPADE AMBROSCH NEEDED",
+      "hypothesis": " One day when I rode over to the Shemeridas, I found Antonia starting off on foot for Russian Peter's house to borrow a spade and brush kneaded."
+    },
+    {
+      "id": "2035-147960-0003",
+      "reference": "THERE HAD BEEN ANOTHER BLACK FROST THE NIGHT BEFORE AND THE AIR WAS CLEAR AND HEADY AS WINE",
+      "hypothesis": " There had been another black frost the night before and the air was clear and heady as wine."
+    },
+    {
+      "id": "2035-147960-0004",
+      "reference": "IT WAS ON ONE OF THESE GRAVEL BEDS THAT I MET MY ADVENTURE",
+      "hypothesis": " It was on one of these gravel beds that I met my adventure."
+    },
+    {
+      "id": "2035-147960-0005",
+      "reference": "I WHIRLED ROUND AND THERE ON ONE OF THOSE DRY GRAVEL BEDS WAS THE BIGGEST SNAKE I HAD EVER SEEN",
+      "hypothesis": " I whirled round and there on one of those dry gravel beds was the biggest snake I had ever seen."
+    },
+    {
+      "id": "2035-147960-0006",
+      "reference": "I KNOW I AM JUST AWFUL JIM I WAS SO SCARED",
+      "hypothesis": " I KNOW I'M JUST AWFUL GEM I WAS SO SCARED"
+    },
+    {
+      "id": "2035-147960-0007",
+      "reference": "I NEVER KNOW YOU WAS SO BRAVE JIM SHE WENT ON COMFORTINGLY",
+      "hypothesis": " I NEVER KNOW YOU WAS SO BRAVE JIM SHE WENT UNCOMFORTINGLY"
+    },
+    {
+      "id": "2035-147960-0008",
+      "reference": "A FAINT FETID SMELL CAME FROM HIM AND A THREAD OF GREEN LIQUID OOZED FROM HIS CRUSHED HEAD",
+      "hypothesis": " A faint, fetid smell came from him and a thread of green liquid oozed from his crushed head."
+    },
+    {
+      "id": "2035-147960-0010",
+      "reference": "I EXPLAINED TO ANTONIA HOW THIS MEANT THAT HE WAS TWENTY FOUR YEARS OLD THAT HE MUST HAVE BEEN THERE WHEN WHITE MEN FIRST CAME LEFT ON FROM BUFFALO AND INDIAN TIMES",
+      "hypothesis": " I explained to Antonia how this meant that he was 24 years old, that he must have been there when white men first came."
+    },
+    {
+      "id": "2035-147960-0011",
+      "reference": "WE DECIDED THAT ANTONIA SHOULD RIDE DUDE HOME AND I WOULD WALK",
+      "hypothesis": " WE DECIDED THAT ANTONIA SHOULD RIDE DUDE HOME AND I WOULD WALK"
+    },
+    {
+      "id": "2035-147960-0012",
+      "reference": "I FOLLOWED WITH THE SPADE OVER MY SHOULDER DRAGGING MY SNAKE",
+      "hypothesis": " I followed with a spade over my shoulder, dragging my snake."
+    },
+    {
+      "id": "2035-147960-0014",
+      "reference": "HE COULD STAND RIGHT UP AND TALK TO YOU HE COULD DID HE FIGHT HARD",
+      "hypothesis": " You could stand right up and talk to you. He could. Did he fight hard?"
+    },
+    {
+      "id": "2035-147960-0015",
+      "reference": "OTTO WINKED AT ME",
+      "hypothesis": " Auto winked at me."
+    },
+    {
+      "id": "2035-147960-0016",
+      "reference": "A SNAKE OF HIS SIZE IN FIGHTING TRIM WOULD BE MORE THAN ANY BOY COULD HANDLE",
+      "hypothesis": " A snake of his size in fighting trim would be more than any boy could handle."
+    },
+    {
+      "id": "2035-147961-0000",
+      "reference": "PETER TOLD HIS TROUBLES TO MISTER SHIMERDA HE WAS UNABLE TO MEET A NOTE WHICH FELL DUE ON THE FIRST OF NOVEMBER HAD TO PAY AN EXORBITANT BONUS ON RENEWING IT AND TO GIVE A MORTGAGE ON HIS PIGS AND HORSES AND EVEN HIS MILK COW",
+      "hypothesis": " Peter told his troubles to Mr. Shimerda. He was unable to meet a note which fell due on the first of November, had to pay an exorbitant bonus on renewing it, and to give a mortgage on his pigs and horses and even his milk cow."
+    },
+    {
+      "id": "2035-147961-0001",
+      "reference": "PETER COULD GIVE NO VERY CLEAR ACCOUNT OF HIS TRANSACTIONS WITH CUTTER",
+      "hypothesis": " Peter could give no very clear account of his transactions with Qatar."
+    },
+    {
+      "id": "2035-147961-0002",
+      "reference": "SHE ASKED PETER TO WAIT A MOMENT AND WHEN SHE CAME BACK FROM THE KITCHEN SHE BROUGHT A BAG OF SANDWICHES AND DOUGHNUTS FOR US",
+      "hypothesis": " She asked Peter to wait a moment, and when she came back from the kitchen, she brought a bag of sandwiches and donuts for us."
+    },
+    {
+      "id": "2035-147961-0004",
+      "reference": "THE LITTLE HOUSE ON THE HILLSIDE WAS SO MUCH THE COLOR OF THE NIGHT THAT WE COULD NOT SEE IT AS WE CAME UP THE DRAW",
+      "hypothesis": " The little house on the hillside was so much the color of the night that we could not see it as we came up the draw."
+    },
+    {
+      "id": "2035-147961-0005",
+      "reference": "THEY MADE ME THINK OF DEFEATED ARMIES RETREATING OR OF GHOSTS WHO WERE TRYING DESPERATELY TO GET IN FOR SHELTER AND THEN WENT MOANING ON",
+      "hypothesis": " They made me think of defeated armies retreating or of ghosts who were trying desperately to get in for shelter. And then went moaning on."
+    },
+    {
+      "id": "2035-147961-0006",
+      "reference": "I COULD NOT TAKE MY EYES OFF THE MAN IN THE BED",
+      "hypothesis": " I could not take my eyes off the man in the bed."
+    },
+    {
+      "id": "2035-147961-0007",
+      "reference": "THE SHARP SMELL OF SPIRITS WENT THROUGH THE ROOM",
+      "hypothesis": " The sharp smell of spirits went through the room."
+    },
+    {
+      "id": "2035-147961-0008",
+      "reference": "IT SEEMED TO ME THAT HE DESPISED HIM FOR BEING SO SIMPLE AND DOCILE",
+      "hypothesis": " It seemed to me that he despised him for being so simple and docile."
+    },
+    {
+      "id": "2035-147961-0009",
+      "reference": "THE SICK MAN RAGED AND SHOOK HIS FIST",
+      "hypothesis": " The sick man raged and shook his fist."
+    },
+    {
+      "id": "2035-147961-0010",
+      "reference": "HE SEEMED TO BE CURSING PEOPLE WHO HAD WRONGED HIM",
+      "hypothesis": " he seemed to be cursing people who had wronged him."
+    },
+    {
+      "id": "2035-147961-0011",
+      "reference": "QUICKLY IT WAS COVERED WITH BRIGHT RED SPOTS I THOUGHT I HAD NEVER SEEN ANY BLOOD SO BRIGHT",
+      "hypothesis": " Quickly, it was covered with bright red spots. I thought I had never seen any blood so bright."
+    },
+    {
+      "id": "2035-147961-0012",
+      "reference": "HE LAY PATIENTLY FIGHTING FOR BREATH LIKE A CHILD WITH CROUP",
+      "hypothesis": " HE LAY PATIENTLY FIGHTING FOR BREATH LIKE A CHILD WITH CROOP."
+    },
+    {
+      "id": "2035-147961-0013",
+      "reference": "ANTONIA'S FATHER UNCOVERED ONE OF HIS LONG BONY LEGS AND RUBBED IT RHYTHMICALLY",
+      "hypothesis": " Anthony's father uncovered one of his long bony legs and rubbed it rhythmically."
+    },
+    {
+      "id": "2035-147961-0014",
+      "reference": "FROM OUR BENCH WE COULD SEE WHAT A HOLLOW CASE HIS BODY WAS",
+      "hypothesis": " From our bench we could see what a hollow case his body was."
+    }
+  ],
+  "provenance": {
+    "schema_version": 1,
+    "created_at_utc": "2026-09-01T00:39:22.472052+00:00",
+    "git_commit": "1b6e43ad19ec0f6c9361a348cd68d6453fd44c2c",
+    "git_dirty": true,
+    "arguments": {
+      "eval_manifest": "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation-learned-filter\\experiments\\crawl_training_study\\openslr31_speaker_disjoint_test.parquet",
+      "domain_vocab": "C:\\Users\\Kunal Munjal\\Downloads\\whisper-domain-adaptation\\configs\\financial_terms.txt",
+      "output": "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation-learned-filter\\experiments\\results\\learned_filter_study\\learned\\openslr31\\seed_11.json",
+      "base_model": "openai/whisper-small",
+      "adapter_path": "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation-learned-filter\\checkpoints\\learned_filter_study\\seed_11\\adapter",
+      "audio_root": null,
+      "seed": 11,
+      "bootstrap_resamples": 10000,
+      "chunk_length_seconds": 30.0,
+      "stride_seconds": 5.0,
+      "batch_size": 2
+    },
+    "seed": 11,
+    "inputs": {
+      "C:\\Users\\Kunal Munjal\\Downloads\\Audio-Data-Creation-learned-filter\\experiments\\crawl_training_study\\openslr31_speaker_disjoint_test.parquet": "e5ee2158dfe59c5869921074534659ec6472af28a61b15cda25b9540d6c1db17",
+      "C:\\Users\\Kunal Munjal\\Downloads\\whisper-domain-adaptation\\configs\\financial_terms.txt": "27678f147dbbf03e76e27cdc8a94afb03436b6f51320d92c7747dd0a5b0cc3ba"
+    },
+    "environment": {
+      "python": "3.11.9",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "torch": "2.11.0+cu128",
+      "cuda_available": true,
+      "cuda_version": "12.8",
+      "device": "NVIDIA GeForce RTX 3070",
+      "packages": {
+        "torch": "2.11.0+cu128",
+        "transformers": "4.57.6",
+        "peft": "0.20.0",
+        "datasets": "4.8.5",
+        "jiwer": "4.0.0",
+        "librosa": "0.11.0",
+        "numpy": "2.4.6",
+        "pandas": "3.0.5"
+      }
+    }
+  }
+}

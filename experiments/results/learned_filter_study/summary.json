@@ -1,0 +1,83 @@
+{
+  "comparisons": {
+    "earnings21": {
+      "common_terms": {
+        "heuristic_mean": 0.21703999999999998,
+        "learned_mean": 0.21383999999999997,
+        "learned_minus_heuristic": {
+          "ci_high": 0.0,
+          "ci_low": -0.007479999999999992,
+          "estimate": -0.003199999999999997,
+          "n_resamples": 10000,
+          "n_trials": 5
+        }
+      },
+      "domain_terms": {
+        "heuristic_mean": 0.10002,
+        "learned_mean": 0.10284,
+        "learned_minus_heuristic": {
+          "ci_high": 0.007939999999999997,
+          "ci_low": -0.004100000000000004,
+          "estimate": 0.0028199999999999974,
+          "n_resamples": 10000,
+          "n_trials": 5
+        }
+      },
+      "overall": {
+        "heuristic_mean": 0.1083,
+        "learned_mean": 0.11069999999999999,
+        "learned_minus_heuristic": {
+          "ci_high": 0.007220000000000002,
+          "ci_low": -0.0042200000000000015,
+          "estimate": 0.0023999999999999994,
+          "n_resamples": 10000,
+          "n_trials": 5
+        }
+      }
+    },
+    "openslr31": {
+      "common_terms": {
+        "heuristic_mean": 0.055959999999999996,
+        "learned_mean": 0.05384,
+        "learned_minus_heuristic": {
+          "ci_high": 0.004519999999999999,
+          "ci_low": -0.00716,
+          "estimate": -0.0021200000000000012,
+          "n_resamples": 10000,
+          "n_trials": 5
+        }
+      },
+      "domain_terms": {
+        "heuristic_mean": null,
+        "learned_mean": null,
+        "learned_minus_heuristic": {
+          "ci_high": null,
+          "ci_low": null,
+          "estimate": null,
+          "n_resamples": 10000,
+          "n_trials": 0
+        }
+      },
+      "overall": {
+        "heuristic_mean": 0.055959999999999996,
+        "learned_mean": 0.05384,
+        "learned_minus_heuristic": {
+          "ci_high": 0.004519999999999999,
+          "ci_low": -0.00716,
+          "estimate": -0.0021200000000000012,
+          "n_resamples": 10000,
+          "n_trials": 5
+        }
+      }
+    }
+  },
+  "n_trials": 5,
+  "schema_version": 1,
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ]
+}

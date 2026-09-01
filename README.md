@@ -72,6 +72,26 @@ zero. A plausible explanation is specialization to the four crawler training
 speakers or read-speech styles rather than speaker-general robustness, but the
 study did not preregister a mechanism test, so that remains an inference.
 
+The experimental [learned quality filter](LEARNED_FILTER_PLAN.md) was then
+tested as an alternative to, not a replacement for, the production heuristic.
+It predicts the heuristic's weak pass/fail labels from lightweight audio
+features; it is not trained on human quality or downstream-utility labels.
+Leave-one-speaker-out development predictions agreed on 205/206 clips (99.51%;
+balanced accuracy 98.84%), and the two untouched speakers agreed on all 44
+clips. Silence fraction accounts for 95.45% of fitted feature importance. The
+only disagreement remains explicitly pending human listening, so no human
+preference claim is made.
+
+After a prospective pre-ASR amendment removed an unrelated sampling confound,
+the learned and heuristic crawler selections overlap on 146/147 clips. The
+[five-seed downstream report](experiments/results/learned_filter_study/REPORT.md)
+finds Earnings-21 overall WER of 11.07% versus 10.83% for the heuristic arm,
+a paired +0.24-point change (95% seed-bootstrap CI -0.42 to +0.72;
+`N_trials=5`). Held-out SLR31 WER is 5.38% versus 5.60%, a -0.21-point change
+(-0.72 to +0.45). Both intervals cross zero, the locked replacement gate fails,
+and the heuristic remains the default. This demonstrates recovery of the
+existing decision boundary, not improved audio quality.
+
 ## Pipeline
 
 ```text
@@ -188,6 +208,16 @@ model/corpus prediction reports:
 
 ```bash
 python scripts/summarize_crawl_training_study.py
+```
+
+Regenerate the learned-filter weak-label artifacts and its five-seed downstream
+comparison with:
+
+```bash
+python scripts/run_learned_filter.py \
+  --manifest data/openslr31_pilot/raw_manifest.parquet \
+  --heuristic-arm experiments/crawl_training_study/augmented_50pct_crawler.parquet
+python scripts/summarize_learned_filter_study.py
 ```
 
 ## License

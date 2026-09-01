@@ -1,0 +1,191 @@
+{
+  "crawler_arm_overlap_with_heuristic": 146,
+  "decision_required_learned_only_ids": [
+    "1988-147956-0022"
+  ],
+  "decision_required_selected_false_negative_ids": [],
+  "development_oof": {
+    "agreement": 0.9951456310679612,
+    "balanced_accuracy": 0.9883720930232558,
+    "confusion_matrix_tn_fp_fn_tp": [
+      42,
+      1,
+      0,
+      163
+    ],
+    "f1": 0.9969418960244648,
+    "n": 206,
+    "n_pass": 163,
+    "precision": 0.9939024390243902,
+    "recall": 1.0,
+    "roc_auc": 0.9933656727065203
+  },
+  "downstream_arm_rows": 294,
+  "input_hashes": {
+    "heuristic_arm": "f5a979178b2a7f359035bab4d445de247c092ae71e65a6c1b929cc703d9edc0a",
+    "manifest": "5ef6cda38037f30fabbbcf9feff2b734b29c9e4616fcc4f77edd6a3671f00545"
+  },
+  "learned_pass_development": 164,
+  "ledger_human_status": "pending",
+  "ledger_rows": 1,
+  "model": {
+    "learning_rate": 0.05,
+    "max_depth": 2,
+    "n_estimators": 100,
+    "seed": 20260831,
+    "type": "GradientBoostingClassifier"
+  },
+  "n_disagreements": 1,
+  "output_hashes": {
+    "learned_filter_arm": "21117a4ea8a445a26266968cc501361d5fc65682c6b7c573dfc45d8a1a484449",
+    "scored_manifest": "2a5a233bed9340dff5931b93ff3e30a2a601c5899ab969935838860f75ecf095"
+  },
+  "per_development_speaker": {
+    "1272": {
+      "agreement": 1.0,
+      "balanced_accuracy": 1.0,
+      "confusion_matrix_tn_fp_fn_tp": [
+        10,
+        0,
+        0,
+        48
+      ],
+      "f1": 1.0,
+      "n": 58,
+      "n_pass": 48,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0
+    },
+    "1462": {
+      "agreement": 1.0,
+      "balanced_accuracy": 1.0,
+      "confusion_matrix_tn_fp_fn_tp": [
+        14,
+        0,
+        0,
+        52
+      ],
+      "f1": 1.0,
+      "n": 66,
+      "n_pass": 52,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0
+    },
+    "174": {
+      "agreement": 1.0,
+      "balanced_accuracy": 1.0,
+      "confusion_matrix_tn_fp_fn_tp": [
+        5,
+        0,
+        0,
+        18
+      ],
+      "f1": 1.0,
+      "n": 23,
+      "n_pass": 18,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0
+    },
+    "1988": {
+      "agreement": 0.9830508474576272,
+      "balanced_accuracy": 0.9642857142857143,
+      "confusion_matrix_tn_fp_fn_tp": [
+        13,
+        1,
+        0,
+        45
+      ],
+      "f1": 0.989010989010989,
+      "n": 59,
+      "n_pass": 45,
+      "precision": 0.9782608695652174,
+      "recall": 1.0,
+      "roc_auc": 0.9642857142857143
+    }
+  },
+  "schema_version": 1,
+  "target": "heuristic_quality_filter_pass",
+  "threshold": 0.5,
+  "top_feature_importances": [
+    {
+      "feature": "silence_ratio",
+      "importance": 0.9545454545454548
+    },
+    {
+      "feature": "snr_db",
+      "importance": 0.024769210283616297
+    },
+    {
+      "feature": "zcr_mean",
+      "importance": 0.020685335170928233
+    },
+    {
+      "feature": "mfcc_16_std",
+      "importance": 1.4043699919370844e-16
+    },
+    {
+      "feature": "mfcc_10_mean",
+      "importance": 1.2213536897963477e-16
+    },
+    {
+      "feature": "mfcc_12_mean",
+      "importance": 1.1765333709047385e-16
+    },
+    {
+      "feature": "mfcc_00_std",
+      "importance": 9.555442985919434e-17
+    },
+    {
+      "feature": "mfcc_16_mean",
+      "importance": 8.503410500824723e-17
+    },
+    {
+      "feature": "mfcc_11_mean",
+      "importance": 6.4242457077973e-17
+    },
+    {
+      "feature": "duration_sec",
+      "importance": 0.0
+    },
+    {
+      "feature": "is_clipped",
+      "importance": 0.0
+    },
+    {
+      "feature": "rms_db",
+      "importance": 0.0
+    },
+    {
+      "feature": "spectral_flatness_mean",
+      "importance": 0.0
+    },
+    {
+      "feature": "spectral_flatness_std",
+      "importance": 0.0
+    },
+    {
+      "feature": "zcr_std",
+      "importance": 0.0
+    }
+  ],
+  "untouched_speakers": {
+    "agreement": 1.0,
+    "balanced_accuracy": 1.0,
+    "confusion_matrix_tn_fp_fn_tp": [
+      4,
+      0,
+      0,
+      40
+    ],
+    "f1": 1.0,
+    "n": 44,
+    "n_pass": 40,
+    "precision": 1.0,
+    "recall": 1.0,
+    "roc_auc": 1.0
+  },
+  "weak_labels_not_human_quality": true
+}
